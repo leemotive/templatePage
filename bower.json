@@ -1,0 +1,30 @@
+{
+  "name": "fundTemplate",
+  "version": "0.0.0",
+  "authors": [
+    "lijie <wstation@163.com>"
+  ],
+  "moduleType": [
+    "amd",
+    "es6",
+    "globals",
+    "node",
+    "yui"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "1.4",
+    "angular-ui-router": "~0.2.18",
+    "angular-resource": "~1.5.0",
+    "jQuery": "2",
+    "bootstrap": "4",
+    "jquery-form": "^3.46.0"
+  }
+}

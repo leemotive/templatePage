@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>
+            {{"type":"textarea", "label":"第一段", "key": "p1"}}
+        </p>
+        <p>
+            {{"type": "select", "options": [{"value":"oneYear", "text":"一年"}, {"value":"oneMonth","text":"一月"}], "label":"排序", "key": "order"}}
+        </p>
+        <img src="{{"type":"text", "label":"图片1", "key": "img1"}}">
+    </div>
+    <script type="text/javascript">
+        
+        var fundCode = [{{"input":"text", "label":"基金码", "key":"fundCode"}}];
+        console.log(fundCode);
+    </script>
+</body>
+</html>
