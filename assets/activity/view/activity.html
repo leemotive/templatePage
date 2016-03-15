@@ -1,0 +1,21 @@
+<div>
+    <div>
+        <select class="form-control" ng-options="tp as tp.name for tp in ac.templates" ng-model="ac.targetTemplate" ng-change="ac.selectTemplate($event)"></select>
+    </div>
+
+    活动名称: <input type="text" ng-model="ac.activityName">
+
+    <div  ng-repeat="phd in ac.targetTemplate.placeholders">
+        <span>{{phd.label}}</span>
+        <textarea ng-if="phd.type == 'textarea'" ng-model="phd.value"></textarea>
+        <select ng-if="phd.type == 'select'" ng-options="op.value as op.text for op in phd.options" ng-model="phd.value"></select>
+        <input ng-if="phd.type != 'textarea' && phd.type != 'select'" type="{{phd.type}}" ng-model="phd.value" />
+        <form ng-if="phd.upload" action="/upload/template/image" enctype="multipart/form-data" method="POST" name="ac.uploadForm">
+            <input type="file" name="img">
+            <input type="button" value="上传" ng-click="ac.uploadImage($event, phd)">
+        </form>
+    </div>
+    <input type="button" value="生成活动页" ng-click="ac.generateActivityPage($event)">
+    <input type="button" value="预览" ng-click="ac.preview($event)">
+    <input type="button" value="下载模板" ng-click="ac.downloadActivity($event)">
+</div>
