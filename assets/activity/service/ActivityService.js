@@ -37,7 +37,7 @@
         };
 
         this.uploadImage = function (file, activityName, templateName, callback) {
-            $(file).parent().ajaxSubmit({
+            $(file).closest('form').ajaxSubmit({
                 url: 'upload/activity/image',
                 data: {
                     activityName: activityName,

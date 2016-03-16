@@ -28,6 +28,9 @@
         vm.generateActivityPage = function ($event) {
             event && event.stopPropagation();
             var params = {};
+            if (!vm.activityName || !vm.targetTemplate.name) {
+                return;
+            }
             vm.targetTemplate.placeholders.map(function (ph) {
                 params[ph.key] = ph.value;
             });
@@ -39,13 +42,17 @@
 
         vm.downloadActivity = function (event) {
             event && event.stopPropagation();
-            
+            if (!vm.activityName) {
+                return;
+            }
             $_ActivityService.downloadActivity(vm.activityName);
         };
 
         vm.uploadImage = function (event, phd) {
             event && event.stopPropagation();
-            
+            if (!vm.activityName || !vm.targetTemplate.name) {
+                return;
+            }
             $_ActivityService.uploadImage(event.target, vm.activityName, vm.targetTemplate.name, setField);
 
             function setField (imgAddress) {
@@ -57,6 +64,9 @@
 
         vm.preview = function (event) {
             event && event.stopPropagation();
+            if (!vm.activityName) {
+                return;
+            }
             $_ActivityService.preview(vm.activityName).then(function () {
                 window.open('/preview/' + vm.activityName + '/index.html');
             });
@@ -73,6 +83,9 @@
         }
 
         function getTemplate () {
+            if (!vm.targetTemplate.name){
+                return;
+            }
             return $_ActivityService.getTemplate({name: vm.targetTemplate.name}).then(function (res) {
                 $.extend(vm.targetTemplate, res);
             });

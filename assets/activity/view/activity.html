@@ -19,7 +19,7 @@
                 <input class="form-control" ng-if="phd.type != 'textarea' && phd.type != 'select'" type="{{phd.type}}" ng-model="phd.value" />
                 <form class="" ng-if="phd.upload" action="/upload/template/image" enctype="multipart/form-data" method="POST" name="ac.uploadForm">
                     <div class="img-upload">
-                        <input type="file" class="btn btn-info btn-sm" name="img">
+                        <input type="file" name="img">
                         <input type="button" class="btn btn-primary btn-sm" value="上传" ng-click="ac.uploadImage($event, phd)">
                     </div>
 
