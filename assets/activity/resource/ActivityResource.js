@@ -15,4 +15,5 @@
             generate:                   $resource('/api/activity')
         };
     }
+
 }());
