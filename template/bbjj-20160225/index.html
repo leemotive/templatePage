@@ -67,7 +67,7 @@
     </div>
 </div>
 <div id="fundIds" class="hidden" data-value="{{{"type":"text", "label":"基金Code", "key": "fundCode"}}}"></div>
-<div class="hidden" data-value="{{{"type":"select", "label":"显示数据", "key": "field", "options": }}}"></div>
+<div id="data-field" class="hidden" data-value="{{{"type":"select", "label":"显示数据", "key": "field", "options": [{"text":"日增长率","value":"dailyIncrease"},{"text":"近一个月","value":"oneMonIncrease"},{"text":"近三个月","value":"threeMonIncrease"},{"text":"近一年","value":"twelveMonIncrease"},{"text":"今年以来","value":"moreTwelveMonIncrease"},{"text":"成立以来","value":"totalIncrease"},{"text":"七日年化","value":"interestRatePerSevenDay"},{"text":"万份收益(元)","value":"benefitPerTenThousand"}]}}}"></div>
 <script type="text/javascript" src="https://static.lufaxcdn.com/config/js/lib/jquery-1.7.1.js"></script>
 <script type="text/javascript" src="https://static.lufaxcdn.com/lufax-public/lufax-lib/lufax-lib.9a4de42b.js"></script>
 <script id="fund-template" type="text/template">
@@ -75,7 +75,7 @@
         {{ var line = i % 2 ? 'even' : 'odd', lineFund = it.data[i];}}
         <tr class="{{=line}}">
             <td class="list-title">({{=lineFund.fundCode}}) {{=lineFund.displayName}}</td>
-            <td class="jijin-num">{{=lineFund.oneMonIncrease}}</td>
+            <td class="jijin-num">{{=lineFund.fundData}}</td>
             <td class="jijin-num"><span class="del">{{=lineFund.totalIncrease}}</span>  0.3%</td>
             <td><img src="images/btn.png"></td>
         </tr>
