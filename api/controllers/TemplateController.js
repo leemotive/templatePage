@@ -5,7 +5,7 @@ var del = require('delete');
 var templates;
 var templateDir = 'template/';
 var activityDir = 'activity/';
-var placeholderRgx = /{({.+?})}/g;
+var placeholderRgx = /{{({.+?})}}/g;
 
 fs.readdir(templateDir, function (err, files) {
     templates = files;

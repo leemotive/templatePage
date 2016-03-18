@@ -4,7 +4,7 @@ var copyDir = require('copy-dir');
 var del = require('delete');
 var templateDir = 'template/';
 var activityDir = 'activity/';
-var placeholderRgx = /{({.+?})}/g;
+var placeholderRgx = /{{({.+?})}}/g;
 
 module.exports = {
 
