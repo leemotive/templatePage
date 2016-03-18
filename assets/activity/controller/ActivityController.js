@@ -31,8 +31,15 @@
             if (!vm.activityName || !vm.targetTemplate.name) {
                 return;
             }
-            vm.targetTemplate.placeholders.map(function (ph) {
+            vm.targetTemplate.placeholders.forEach(function (ph) {
                 params[ph.key] = ph.value;
+                if (ph.type === 'select') {
+                    ph.options.forEach(function (op) {
+                        if (op.value === ph.value) {
+                            params[ph.key + 'Text'] = op.text;
+                        }
+                    })
+                }
             });
             params = params || [];
             params.activityName = vm.activityName;

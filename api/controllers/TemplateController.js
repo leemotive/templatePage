@@ -30,7 +30,9 @@ module.exports = {
 
         template.replace(placeholderRgx, function (match, sub) {
             var placeholder = JSON.parse(sub);
-            placeholders.push(placeholder);
+            if (!placeholder.parseIgnore) {
+                placeholders.push(placeholder);
+            }
         });
         return res.json({
             success: true,

@@ -21,6 +21,9 @@ module.exports = {
 
         pageHTML = pageHTML.replace(placeholderRgx, function (match, sub) {
             var placeholder = JSON.parse(sub);
+            if (placeholder.parseIgnore) {
+                return params[placeholder.key + 'Text'];
+            }
             return params[placeholder.key];
         });
 
