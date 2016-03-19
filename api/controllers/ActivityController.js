@@ -2,9 +2,11 @@ var fs = require('fs');
 var Archiver = require('archiver');
 var copyDir = require('copy-dir');
 var del = require('delete');
+var doT = require('dot');
 var templateDir = 'template/';
 var activityDir = 'activity/';
 var placeholderRgx = /{{({.+?})}}/g;
+var loopPlaceholderRgx = /\[\[(?:.|\s)*?{{({.+?})}}((?:.|\s)*?)\]\]/g;
 
 module.exports = {
 
@@ -21,10 +23,17 @@ module.exports = {
 
         pageHTML = pageHTML.replace(placeholderRgx, function (match, sub) {
             var placeholder = JSON.parse(sub);
-            if (placeholder.parseIgnore) {
-                return params[placeholder.key + 'Text'];
+            if (placeholder.type === 'loop') {
+                return match;
             }
             return params[placeholder.key];
+        });
+        pageHTML = pageHTML.replace(loopPlaceholderRgx, function (match, sub, template) {
+            var placeholder = JSON.parse(sub);
+            var model = params[placeholder.key];
+
+            var factory = doT.template(template);
+            return factory({data:model});
         });
 
         fs.writeFileSync(activityDir + activityName + '/index.html', pageHTML, {encoding: 'utf-8'});

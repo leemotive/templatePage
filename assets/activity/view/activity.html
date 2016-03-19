@@ -16,7 +16,14 @@
             <div class="field">
                 <textarea class="form-control" ng-if="phd.type == 'textarea'" ng-model="phd.value"></textarea>
                 <select class="form-control" ng-if="phd.type == 'select'" ng-options="op.value as op.text for op in phd.options" ng-model="phd.value"></select>
-                <input class="form-control" ng-if="phd.type != 'textarea' && phd.type != 'select'" type="{{phd.type}}" ng-model="phd.value" />
+                <div class="loop" ng-if="phd.type == 'loop'" ng-init="phd.value = []">
+                    <input type="button" class="btn btn-info btn-sm" value="添加" ng-click="phd.value.unshift({})">
+                    <input type="button" class="btn btn-danger btn-sm" value="删除" ng-click="phd.value.shift()">
+                    <textarea class="form-control" ng-repeat-start="v in phd.value track by $index" ng-model="v.value"></textarea>
+                    <input type="button" class="btn btn-info btn-sm" value="添加" ng-click="phd.value.splice($index + 1, 0, {})" />
+                    <input type="button" class="btn btn-danger btn-sm" ng-repeat-end value="删除" ng-click="phd.value.splice($index + 1, 1)" />
+                </div>
+                <input class="form-control" ng-if="phd.type != 'textarea' && phd.type != 'select' && phd.type != 'loop'" type="{{phd.type}}" ng-model="phd.value" />
                 <form class="" ng-if="phd.upload" action="/upload/template/image" enctype="multipart/form-data" method="POST" name="ac.uploadForm">
                     <div class="img-upload">
                         <input type="file" name="img">

@@ -27,17 +27,21 @@
     <div class="describe">
         <p>{{{"type":"textarea", "label":"红字描述", "key": "desc"}}}</p>
     </div>
-    <p class="words part1">{{{"type":"textarea", "label":"第一段", "key": "p1"}}}</p>
-    <p class="words">{{{"type":"textarea", "label":"第二段", "key": "p2"}}}</p>
-    <p class="words">{{{"type":"textarea", "label":"第三段", "key": "p3"}}}</p>
-    <p class="words">{{{"type":"textarea", "label":"第四段", "key": "p4"}}}</p>
+    [[
+        {{{"type": "loop", "label": "段落", "key": "pgh"}}}
+        {{ for (var i = 0, len = it.data.length; i < len; i++) { }}
+            {{var line = i == 0 ? 'first' : i == len - 1 ? 'last' : '';}}
+            <p class="words {{=line}}">{{=it.data[i].value}}</p>
+        {{ } }}
+    ]]
+
     <div class="form">
     <table>
         <caption class="jijin-title">保本基金</caption>
         <thead>
             <tr>
                  <th class="jijin-name list1">基金名称</th>
-                 <th class="jijin-profit list1">{{{"type":"select", "label":"显示数据", "key": "field", "parseIgnore": true}}}</th>
+                 <th class="jijin-profit list1">{{{"type":"select", "label":"显示数据", "key": "fieldText", "parseIgnore": true}}}</th>
                  <th class="jijin-fee list1">手续费</th>
                  <th class="jijin-operate list1">操作</th>
            </tr>
