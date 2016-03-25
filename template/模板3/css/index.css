@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+*{ margin:0; padding:0; border:none;}
+*{outline:none;}
+
+body{ overflow-x: hidden; background: #ffffff;}
+a{ text-decoration:none;}
+a:hover{ text-decoration:underline;}
+.clear{ clear:both; height:0;}
+
+
+.banner {
+    width:100%;
+    margin:auto;
+    background: url(../img/bg.jpg) 50% no-repeat;
+    position: relative;
+}
+
+.banner .pic,.layout {
+    margin: auto;
+    width: 1150px;
+    position: relative;
+}
+
+.center {
+    background-color: #ea7211;
+    width:100%;
+    margin:auto;
+    position: relative;
+}
+
+.layout .form {
+    margin: 20px 0 20px;
+    position: relative;
+    border-bottom: 6px solid #f3b56d;
+    background: white;
+    padding: 0 15px;
+}
+
+.layout .form table {
+    line-height: 40px;
+}
+.layout .form .jijin-title {
+     padding-left: 10px;
+    height: 47px;
+    font-size: 18px;
+    text-align: left;
+}
+.layout .form .list1 {
+    font-weight: bold;
+    text-align: center;    
+    font-size: 16px;
+    border-bottom: 2px solid #edd9b0;
+}
+.layout .form .jijin-name {
+    width: 314px;;
+}
+.layout .form .jijin-profit {
+    width: 220px;
+}
+.layout .form .jijin-fee {
+    width: 290px;
+}
+.layout .form .jijin-operate {
+    width: 293px;
+}
+
+.layout .form .jijin-num1 {
+    color: #ec5400;
+}
+.layout .form .jijin-num1 span {
+    color: #4e9b4c;
+}
+.layout .form .jijin-num2 span {
+    text-decoration: line-through; 
+    color: #999999;
+}
+.layout .form .jijin-date {
+    height: 47px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.state {
+    margin: auto;
+    width: 1150px;
+    position: relative;
+    background-color: #f9f9f9;
+    margin-top:20px; 
+    padding: 16px 2px;
+}
+.state p {
+    font-size: 14px;
+    line-height: 26px;
+    color: #9b9b9b;
+    padding: 0 32px;
+}
+.pic-foot {
+    margin: auto;
+    width: 1150px;
+    position: relative;
+    padding-bottom: 110px;
+}
+td{
+    text-align: center;
+    font-size: 14px;
+}
+
+td.list-title{
+    text-align: left;
+    padding-left: 20px;
+}
+tbody td{
+    border-bottom: 1px dashed #ede6d6;
+}
