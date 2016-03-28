@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>练功房战报 - 平安陆金所</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="融资平台,投资平台,网上投资平台,小额投资平台,小额投资,个人小额投资,网上小额投资,小额投资理财,网上投资理财,投资好项目"/>
+    <meta name="description"
+          content="中国平安陆金所官方网站,是中国平安保险集团股份有限公司旗下成员,在健全的风险管控体系基础上,为中小企业及个人客户提供专业,可信赖的投融资服务,助您财富实现增值!"/>
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <link rel="stylesheet" href="css/index.css"/>
+</head>
+<style>
+    .btn {
+       width: 80px;     
+    }
+
+</style>
+
+<body>
+<script type="text/javascript">
+    (function () {
+        document.documentElement.style.fontSize = (document.body.offsetWidth/320) * 14 + 'px';
+    })()
+</script>
+   <img src="{{{"type":"input", "label":"banner图片", "key": "bannerImg", "upload": true}}}">
+   <div class="message">
+        <!-- <p class="word1">八成投资者看涨2016年A股市场  公私募如何看后市开年私募扎堆调研55家公司 6个股逆市上涨引关注 股市很好买财富荣获“2015财富管理机构年度大奖</p> -->        
+        <p class="word1">{{{"type":"textarea", "label":"页面描述", "key": "desc"}}}</p>
+    </div>
+    <div class="jijin-title">
+        <p class="recommend clearfix">推荐一：{{{"type": "text", "label":"推荐一标题", "key": "title1"}}}</p>
+        <p class="reason place clearfix">{{{"type": "text", "label":"推荐一理由1", "key": "rec1res1"}}}</p>
+        <p class="reason resource">{{{"type": "text", "label":"推荐一理由2", "key": "rec1res2"}}}</p>
+        <div class="hot">{{{"type": "text", "label":"推荐一描述", "key": "rec1desc"}}}</div>
+    </div>
+    <div class="form">
+        <table>
+            <thead>
+                <tr>
+                    <th class="list1">基金名称</th>
+                    <th class="list1">{{{"type":"select", "label":"显示数据", "key": "field1Text", "parseIgnore": true}}}</th>
+                    <th class="list1">操作</th>
+                </tr>
+            </thead>
+            <tbody id="fund-list1">
+                <tr>
+                    <td class="">
+                        <div class="pro">630010富国城镇发展股票</div>
+                        <div class="code"><span class="fee">申购费<span class="line"> 1.2% </span> 0.12%</span></div>
+                    </td>
+                    <td class="jijin-num">278.98%</td>
+                    <td class="btn"><img src="images/btn.png"></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="jijin-date">数据日期：<span id="dataDate1"></span></td>
+                </tr>
+            </tfoot>
+        </table>
+        <div id="fundIds1" class="hidden" fundIds="{{{"type":"text", "label":"基金Code", "key": "fundCode1"}}}"></div>
+        <div id="data-field1" class="hidden" data-value="{{{"type":"select", "label":"显示数据", "key": "field1", "options": [{"text":"日增长率","value":"dailyIncrease"},{"text":"近一个月","value":"oneMonIncrease"},{"text":"近三个月","value":"threeMonIncrease"},{"text":"近一年","value":"twelveMonIncrease"},{"text":"今年以来","value":"moreTwelveMonIncrease"},{"text":"成立以来","value":"totalIncrease"},{"text":"七日年化","value":"interestRatePerSevenDay"},{"text":"万份收益(元)","value":"benefitPerTenThousand"}]}}}"></div>
+    </div>
+    <div class="jijin-title">
+        <p class="recommend clearfix">推荐二：{{{"type": "text", "label":"推荐二标题", "key": "title2"}}}</p>
+        <p class="reason place clearfix">{{{"type": "text", "label":"推荐二理由1", "key": "rec2res1"}}}</p>
+        <p class="reason resource">{{{"type": "text", "label":"推荐二理由2", "key": "rec2res2"}}}</p>
+        <div class="hot">{{{"type": "text", "label":"推荐二描述", "key": "rec2desc"}}}</div>
+    </div>
+    <div class="form">
+        <table>
+            <thead>
+                <tr>
+                    <th class="list1">基金名称</th>
+                    <th class="list1">{{{"type":"select", "label":"显示数据", "key": "field2Text", "parseIgnore": true}}}</th>
+                    <th class="list1">操作</th>
+               </tr>
+            </thead>
+            <tbody id="fund-list2">
+                
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="jijin-date">数据日期：<span id="dataDate2"></span></td>
+                </tr>
+            </tfoot>
+        </table>
+        <div id="fundIds2" class="hidden" fundIds="{{{"type":"text", "label":"基金Code", "key": "fundCode2"}}}"></div>
+        <div id="data-field2" class="hidden" data-value="{{{"type":"select", "label":"显示数据", "key": "field2", "options": [{"text":"日增长率","value":"dailyIncrease"},{"text":"近一个月","value":"oneMonIncrease"},{"text":"近三个月","value":"threeMonIncrease"},{"text":"近一年","value":"twelveMonIncrease"},{"text":"今年以来","value":"moreTwelveMonIncrease"},{"text":"成立以来","value":"totalIncrease"},{"text":"七日年化","value":"interestRatePerSevenDay"},{"text":"万份收益(元)","value":"benefitPerTenThousand"}]}}}"></div>
+    </div>
+    <div class="jijin-title">
+        <p class="recommend clearfix">推荐三：{{{"type": "text", "label":"推荐三标题", "key": "title3"}}}</p>
+        <p class="reason place clearfix">{{{"type": "text", "label":"推荐三理由1", "key": "rec3res1"}}}</p>
+        <p class="reason resource">{{{"type": "text", "label":"推荐三理由2", "key": "rec3res2"}}}</p>
+        <div class="hot">{{{"type": "text", "label":"推荐三描述", "key": "rec3desc"}}}</div>
+    </div>
+    <div class="form">
+        <table>
+            <thead>
+                <tr>
+                    <th class="list1">基金名称</th>
+                    <th class="list1">{{{"type":"select", "label":"显示数据", "key": "field3Text", "parseIgnore": true}}}</th>
+                    <th class="list1">操作</th>
+                </tr>
+            </thead>
+            <tbody id="fund-list3">
+                
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="jijin-date">数据日期：<span id="dataDate3"></span></td>
+                </tr>
+            </tfoot>
+        </table>
+        <div id="fundIds3" class="hidden" fundIds="{{{"type":"text", "label":"基金Code", "key": "fundCode3"}}}"></div>
+        <div id="data-field3" class="hidden" data-value="{{{"type":"select", "label":"显示数据", "key": "field3", "options": [{"text":"日增长率","value":"dailyIncrease"},{"text":"近一个月","value":"oneMonIncrease"},{"text":"近三个月","value":"threeMonIncrease"},{"text":"近一年","value":"twelveMonIncrease"},{"text":"今年以来","value":"moreTwelveMonIncrease"},{"text":"成立以来","value":"totalIncrease"},{"text":"七日年化","value":"interestRatePerSevenDay"},{"text":"万份收益(元)","value":"benefitPerTenThousand"}]}}}"></div>
+    </div>
+<div class="message">
+        <p class="word2">{{{"type": "textarea", "label":"页脚", "key": "foot"}}}</p>
+</div>
+<div class="message">
+        <p class="word3">{{{"type": "textarea", "label":"声明", "key": "state"}}}</p>
+</div>
+
+<script type="text/javascript" src="https://static.lufaxcdn.com/lufax-public/zepto/20140916.zepto.min.js"></script>
+<script type="text/javascript" src="bridge.js"></script>
+<script>
+window.Bridge.call({
+    "task":"title",
+    "title":"练功房战报"
+    });
+
+</script>
+</body>
+</html>
