@@ -19,29 +19,15 @@
         <span class="headLink"><a class="goHomepage" href="//www.lu.com" target="_blank">平安陆金所首页</a><span class="currentPage"></span></span>
     </div>
 </div>
-<div class="box">
-<div class="banner">
-    <img src="images/banner.jpg">
-</div>
-<div class="layout">
-    <p class="title1">{{{"type":"text", "label":"大标题", "key": "title"}}}</p>
-    <p class="line"></p>
-    <p class="title2">{{{"type":"text", "label":"副标题日期", "key": "date"}}}&nbsp;&nbsp;&nbsp;{{{"type":"text", "label":"副标题时间", "key": "time"}}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源：{{{"type":"text", "label":"副标题来源", "key": "source"}}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编辑：陆金所</p>
-    <div class="describe">
-        <p>{{{"type":"textarea", "label":"红字描述", "key": "desc"}}}</p>
-    </div>
 
-    [[
-        {{{"type": "loop", "label": "段落", "key": "pgh"}}}
-        {{ for (var i = 0, len = it.data.length; i < len; i++) { }}
-            {{var line = i == 0 ? 'first' : i == len - 1 ? 'last' : '';}}
-            <p class="words {{=line}}">{{=it.data[i].value}}</p>
-        {{ } }}
-    ]]
-    
+<div class="banner">
+    <div class="pic"><img src="{{{"type":"text", "label":"banner图片", "key": "bannerImg", "upload": true}}}"></div>
+</div>
+<div class="center">
+<div class="layout">
+    <img src="{{{"type":"text", "label":"图片1", "key": "img1", "upload": true}}}">
     <div class="form">
     <table>
-        <caption class="jijin-title">保本基金</caption>
         <thead>
             <tr>
                  <th class="jijin-name list1">基金名称</th>
@@ -51,7 +37,7 @@
            </tr>
         </thead>
         <tbody id="fund-list">
-        
+           
         </tbody>
         <tfoot>
             <tr>
@@ -60,11 +46,18 @@
         </tfoot>
     </table>
     </div>
+    <img src="{{{"type":"text", "label":"图片2", "key": "img2", "upload": true}}}">
+    <img src="{{{"type":"text", "label":"图片3", "key": "img3", "upload": true}}}">
+    <div class="pic-foot">
+    <div class="state">
+        <!-- <p>郑重声明：天天基金网发布此信息目的在于传播更多信息，与本网站立场无关。天天基金网不保证该信息（包括但不限于文字、数据及图表）全部或者部分内容的准确性、真实性、完整性、有效性、及时性、原创性等。相关信息并未经过本网站证实</p> -->
+        <p>{{{"type":"textarea", "label":"声明", "key": "state"}}}</p>
+    </div>
+    </div>
 </div>
 </div>
-<div class="state">
-        <p>郑重声明：天天基金网发布此信息目的在于传播更多信息，与本网站立场无关。天天基金网不保证该信息（包括但不限于文字、数据及图表）全部或者部分内容的准确性、真实性、完整性、有效性、及时性、原创性等。相关信息并未经过本网站证实</p>
 </div>
+
 <div class="footer">
     <div class="content clearfix">
         <div class="contactbox">
@@ -74,19 +67,23 @@
         <p class="copyright">版权所有 © 上海陆家嘴国际金融资产交易市场股份有限公司未经许可不得复制、转载或摘编，违者必究!<br>Copyright Shanghai Lujiazui International Financial Asset Exchange Co.,LTD. ALL Rights Reserved<br>沪 ICP 证 B2-20120023号&emsp;&emsp;&emsp;沪 ICP 备 12032241 号-7</p>
     </div>
 </div>
+<div id="fundIds" class="hidden" fundIds="{{{"type":"text", "label":"基金Code", "key": "fundCode"}}}"></div>
+<div id="data-field" class="hidden" data-value="{{{"type":"select", "label":"显示数据", "key": "field", "options": [{"text":"日增长率","value":"dailyIncrease"},{"text":"近一个月","value":"oneMonIncrease"},{"text":"近三个月","value":"threeMonIncrease"},{"text":"近一年","value":"twelveMonIncrease"},{"text":"今年以来","value":"moreTwelveMonIncrease"},{"text":"成立以来","value":"totalIncrease"},{"text":"七日年化","value":"interestRatePerSevenDay"},{"text":"万份收益(元)","value":"benefitPerTenThousand"}]}}}"></div>
 <script id="fund-template" type="text/template">
     {{ for (var i = 0, len = it.data.length; i < len; i++) { }}
         {{ var line = i % 2 ? 'odd' : 'even', lineFund = it.data[i];}}
+        {{ var statusStyle = lineFund.productStatus == 'PAUSE' || lineFund.productStatus == 'CLOSED' ? 'btn-stop' : '';}}
         <tr class="{{=line}}">
             <td class="list-title">({{=lineFund.fundCode}}) {{=lineFund.displayName}}</td>
-            <td class="jijin-num">{{=lineFund.fundData}}</td>
+            <td class="jijin-num {{=lineFund.fundDataDecrease}}">{{=lineFund.fundData}}</td>
             <td class="jijin-num"><span class="{{=lineFund.feeStyle}}">{{=lineFund.fee}}</span>  {{=lineFund.feeDiscount}}</td>
-            <td><img src="images/btn.png"></td>
+            <td><i class="btn-invest {{=statusStyle}}"></i></td>
         </tr>
     {{ } }}
 </script>
 <script type="text/javascript" src="https://static.lufaxcdn.com/config/js/lib/jquery-1.7.1.js"></script>
 <script type="text/javascript" src="https://static.lufaxcdn.com/lufax-public/lufax-lib/lufax-lib.9a4de42b.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
 <script type="text/javascript">
     $(function(){
         $(".currentPage").html("保本基金 安心来袭");

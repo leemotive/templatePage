@@ -139,7 +139,7 @@ td{
     text-align: center;
     font-size: 14px;
 }
-.even td{
+.odd td{
     background: #f3f3f2;
 }
 td.list-title{
@@ -154,24 +154,20 @@ tbody span{
     color: #999999;
 }
 .btn-invest {
-  background: url("../img/btn.png") no-repeat 0px 0px;
-  display: inline-block;
-  width: 99px;
-  height: 30px;
-  text-align: center;
-  vertical-align: middle;
+    background: url("../img/btn.png") no-repeat;
+    background-position: 0px 0px;
+    display: inline-block;
+    width: 99px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
 }
 .btn-invest:hover {
-  background: url("../img/btn.png") no-repeat 0px -50px;
+    background-position: 0px -50px;
 }
-.btn-stop {
-  background: url("../img/btn.png") no-repeat 0px -100px;
-  display: inline-block;
-  width: 99px;
-  height: 30px;
-  text-align: center;
-  vertical-align: middle;
+.btn-invest.btn-stop {
+    background-position: 0px -100px;
 }
-.btn-stop:hover {
-  background: url("../img/btn.png") no-repeat 0px -150px;
+.btn-invest.btn-stop:hover {
+    background-position: 0px -150px;
 }

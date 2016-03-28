@@ -17,9 +17,6 @@ a:hover{ text-decoration:underline;}
     border: 1px solid #e8e8e8;
     margin-top:20px;
 }
-.banner {
-        border-bottom: 1px solid #e8e8e8;
-}
 .layout {
     background:#fefdf6;
     margin:auto;
@@ -53,22 +50,16 @@ a:hover{ text-decoration:underline;}
     padding: 25px 16px;
     font-size: 14px;
     color: #ff0000;
-    text-indent: 28px;
+    text-indent: 2em;
 }
 .layout .words {
     font-size: 14px;
     line-height: 30px;
     padding: 50px 80px 0;
-    text-indent: 28px;
+    text-indent: 2em;
 }
 .layout .words.first {
     padding-top: 20px;
-}
-.layout .part1 {
-    font-size: 14px;
-    line-height: 30px;
-    padding: 20px 80px 0;
-    text-indent: 28px;
 }
 .layout .form {
     margin: 20px 35px 0;
@@ -110,6 +101,13 @@ a:hover{ text-decoration:underline;}
 .layout .form .jijin-num {
     color: #ec5400;
 }
+.layout .form .jijin-num.decrease{
+    color: #4e9b4c;
+}
+.layout .form .jijin-num .del{
+    color: #b2b2b2;
+    text-decoration: line-through;
+}
 
 .layout .form .jijin-date {
     height: 47px;
@@ -137,7 +135,7 @@ td{
     text-align: center;
     font-size: 14px;
 }
-.even td{
+.odd td{
     background: #f3f3f2;
 }
 td.list-title{
@@ -147,29 +145,21 @@ td.list-title{
 tbody td{
     border-bottom: 1px solid #ede6d6;
 }
-tbody span{
-    text-decoration: line-through;
-    color: #999999;
-}
 .btn-invest {
-  background: url("../img/btn.png") no-repeat 0px 0px;
-  display: inline-block;
-  width: 99px;
-  height: 30px;
-  text-align: center;
-  vertical-align: middle;
+    background: url("../img/btn.png") no-repeat;
+    background-position: 0px 0px;
+    display: inline-block;
+    width: 99px;
+    height: 30px;
+    text-align: center;
+    vertical-align: middle;
 }
 .btn-invest:hover {
-  background: url("../img/btn.png") no-repeat 0px -50px;
+    background-position: 0px -50px;
 }
-.btn-stop {
-  background: url("../img/btn.png") no-repeat 0px -100px;
-  display: inline-block;
-  width: 99px;
-  height: 30px;
-  text-align: center;
-  vertical-align: middle;
+.btn-invest.btn-stop {
+    background-position: 0px -100px;
 }
-.btn-stop:hover {
-  background: url("../img/btn.png") no-repeat 0px -150px;
+.btn-invest.btn-stop:hover {
+    background-position: 0px -150px;
 }

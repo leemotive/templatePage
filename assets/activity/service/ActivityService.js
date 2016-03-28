@@ -40,8 +40,8 @@
             $(file).closest('form').ajaxSubmit({
                 url: 'upload/activity/image',
                 data: {
-                    activityName: activityName,
-                    templateName: templateName
+                    'activityName': activityName,
+                    'templateName': templateName
                 },
                 success: function (res) {
                     callback && callback(res.data);

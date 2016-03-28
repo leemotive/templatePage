@@ -23,7 +23,7 @@
 <div class="layout">
     <p class="title1">{{{"type":"text", "label":"大标题", "key": "title"}}}</p>
     <p class="line"></p>
-    <p class="title2">{{{"type":"text", "label":"副标题日期", "key": "date"}}}&nbsp;&nbsp;&nbsp;{{{"type":"text", "label":"副标题时间", "key": "time"}}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源：{{{"type":"text", "label":"副标题来源", "key": "source"}}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编辑：陆金所</p>
+    <p class="title2">{{{"type":"text", "label":"日期", "key": "date"}}}&nbsp;&nbsp;&nbsp;{{{"type":"text", "label":"时间", "key": "time"}}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源：{{{"type":"text", "label":"来源", "key": "source"}}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编辑：陆金所</p>
     <div class="describe">
         <p>{{{"type":"textarea", "label":"红字描述", "key": "desc"}}}</p>
     </div>
@@ -59,7 +59,7 @@
 </div>
 </div>
 <div class="state">
-        <p>郑重声明：天天基金网发布此信息目的在于传播更多信息，与本网站立场无关。天天基金网不保证该信息（包括但不限于文字、数据及图表）全部或者部分内容的准确性、真实性、完整性、有效性、及时性、原创性等。相关信息并未经过本网站证实</p>
+        <p>{{{"type":"textarea", "label":"声明", "key": "state"}}}</p>
 </div>
 <div class="footer">
     <div class="content clearfix">
@@ -77,11 +77,12 @@
 <script id="fund-template" type="text/template">
     {{ for (var i = 0, len = it.data.length; i < len; i++) { }}
         {{ var line = i % 2 ? 'odd' : 'even', lineFund = it.data[i];}}
+        {{ var statusStyle = lineFund.productStatus == 'PAUSE' || lineFund.productStatus == 'CLOSED' ? 'btn-stop' : '';}}
         <tr class="{{=line}}">
             <td class="list-title">({{=lineFund.fundCode}}) {{=lineFund.displayName}}</td>
-            <td class="jijin-num">{{=lineFund.fundData}}</td>
+            <td class="jijin-num {{=lineFund.fundDataDecrease}}">{{=lineFund.fundData}}</td>
             <td class="jijin-num"><span class="{{=lineFund.feeStyle}}">{{=lineFund.fee}}</span>  {{=lineFund.feeDiscount}}</td>
-            <td><img src="images/btn.png"></td>
+            <td><i class="btn-invest {{=statusStyle}}"></i></td>
         </tr>
     {{ } }}
 </script>
@@ -90,6 +91,6 @@
         $(".currentPage").html("保本基金 安心来袭");
     });
 </script>
-<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
 </body>
 </html>

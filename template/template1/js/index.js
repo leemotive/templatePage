@@ -19,6 +19,7 @@
                     var dataDate = res.dataDate.split(/\W+/);
                     $.each(res.data, function (i, fund) {
                         fund.fundData = fund[dataField] ? (fund[dataField] * 100).toFixed(2) + '%' : '--';
+                        fund.fundDataDecrease = fund[dataField] < 0 ? 'decrease' : '';
                         var discount, feeStyle, feeDiscount, fee, symbol;
                         feeStyle = 'del';
                         discount = feeDiscount = fee = '';
