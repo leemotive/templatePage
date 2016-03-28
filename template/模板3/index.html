@@ -25,7 +25,7 @@
 </div>
 <div class="center">
 <div class="layout">
-    <img src="images/pic1.jpg">    
+    <img src="images/pic1.jpg">
     <div class="form">
     <table>
         <thead>
@@ -41,43 +41,43 @@
                  <td class="jijin-pro list-title">(000663) 申万菱信量化小盘股票LOF</td>
                  <td class="jijin-num1">124.98%</td>
                  <td class="jijin-num2"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-stop.png" onmouseover='src="images/btn-stop-hover.png"' onmouseout='src="images/btn-stop.png"' alt=""/></td>
+                 <td><i class="btn-stop"></i></td>
            </tr>
            <tr>
                  <td class="list-title">(000663) 申万菱信量化小盘股票LOF</td>
                  <td class="jijin-num1">124.98%</td>
                  <td class="jijin-num2 "><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr>
                  <td class="jijin-pro list-title">(000663) 国投瑞银美丽中国混合</td>
                  <td class="jijin-num1">108.34%</td>
                  <td class="jijin-num2"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr>
                  <td class="list-title">(000663) 申万菱信量化小盘股票LOF</td>
                  <td class="jijin-num1">124.98%</td>
                  <td class="jijin-num2"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr>
                  <td class="jijin-pro  list-title">(000663) 国投瑞银美丽中国混合</td>
                  <td class="jijin-num1">108.34%</td>
                  <td class="jijin-num2"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr>
                  <td class="list-title">(000663) 申万菱信量化小盘股票LOF</td>
                  <td class="jijin-num1"><span>124.98%</span></td>
                  <td class="jijin-num2"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr>
                  <td class="jijin-pro  list-title">(000663) 国投瑞银美丽中国混合</td>
                  <td class="jijin-num1"><span>108.34%</span></td>
                  <td class="jijin-num2"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
         </tbody>
         <tfoot>
             <tr>
@@ -90,7 +90,9 @@
     <img src="images/pic3.jpg">
     <div class="pic-foot">
     <div class="state">
-        <p>郑重声明：天天基金网发布此信息目的在于传播更多信息，与本网站立场无关。天天基金网不保证该信息（包括但不限于文字、数据及图表）全部或者部分内容的准确性、真实性、完整性、有效性、及时性、原创性等。相关信息并未经过本网站证实</p>
+        <!-- <p>郑重声明：天天基金网发布此信息目的在于传播更多信息，与本网站立场无关。天天基金网不保证该信息（包括但不限于文字、数据及图表）全部或者部分内容的准确性、真实性、完整性、有效性、及时性、原创性等。相关信息并未经过本网站证实</p> -->
+        <p>{{{"type":"textarea", "label":"声明", "key": "state"}}}</p>
+    </div>
     </div>
 </div>
 </div>
@@ -105,7 +107,8 @@
         <p class="copyright">版权所有 © 上海陆家嘴国际金融资产交易市场股份有限公司未经许可不得复制、转载或摘编，违者必究!<br>Copyright Shanghai Lujiazui International Financial Asset Exchange Co.,LTD. ALL Rights Reserved<br>沪 ICP 证 B2-20120023号&emsp;&emsp;&emsp;沪 ICP 备 12032241 号-7</p>
     </div>
 </div>
-
+<div id="fundIds" class="hidden" data-value="{{{"type":"text", "label":"基金Code", "key": "fundCode"}}}"></div>
+<div id="data-field" class="hidden" data-value="{{{"type":"select", "label":"显示数据", "key": "field", "options": [{"text":"日增长率","value":"dailyIncrease"},{"text":"近一个月","value":"oneMonIncrease"},{"text":"近三个月","value":"threeMonIncrease"},{"text":"近一年","value":"twelveMonIncrease"},{"text":"今年以来","value":"moreTwelveMonIncrease"},{"text":"成立以来","value":"totalIncrease"},{"text":"七日年化","value":"interestRatePerSevenDay"},{"text":"万份收益(元)","value":"benefitPerTenThousand"}]}}}"></div>
 <script type="text/javascript" src="https://static.lufaxcdn.com/config/js/lib/jquery-1.7.1.js"></script>
 <script type="text/javascript">
     $(function(){

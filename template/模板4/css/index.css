@@ -13,7 +13,7 @@ a:hover{ text-decoration:underline;}
 
 .banner {
     width:100%;
-    margin:auto;   
+    margin:auto;
     position: relative;
 }
 
@@ -91,7 +91,7 @@ a:hover{ text-decoration:underline;}
 }
 .layout .form .list1 {
     font-weight: bold;
-    text-align: center;    
+    text-align: center;
     background-color: #f3f3f2;
     font-size: 12px;
     border-right: 1px solid #ffffff;
@@ -124,7 +124,7 @@ a:hover{ text-decoration:underline;}
     width: 1148px;
     position: relative;
     background-color: #f9f9f9;
-    margin-top:20px; 
+    margin-top:20px;
     padding: 16px 2px;
     margin-bottom: 50px;
 }
@@ -150,6 +150,28 @@ tbody td{
     border-bottom: 1px solid #ede6d6;
 }
 tbody span{
-    text-decoration: line-through; 
+    text-decoration: line-through;
     color: #999999;
+}
+.btn-invest {
+  background: url("../img/btn.png") no-repeat 0px 0px;
+  display: inline-block;
+  width: 99px;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+.btn-invest:hover {
+  background: url("../img/btn.png") no-repeat 0px -50px;
+}
+.btn-stop {
+  background: url("../img/btn.png") no-repeat 0px -100px;
+  display: inline-block;
+  width: 99px;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+.btn-stop:hover {
+  background: url("../img/btn.png") no-repeat 0px -150px;
 }
