@@ -24,70 +24,34 @@
     <img src="images/banner.jpg">
 </div>
 <div class="layout">
-    <p class="title1">重返2850点：41股市盈率股价跌破去年低点</p>
+    <p class="title1">{{{"type":"text", "label":"大标题", "key": "title"}}}</p>
     <p class="line"></p>
-    <p class="title2">2016年01月19日&nbsp;&nbsp;&nbsp;07:05&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源：东方财富&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编辑：陆金所</p>
+    <p class="title2">{{{"type":"text", "label":"副标题日期", "key": "date"}}}&nbsp;&nbsp;&nbsp;{{{"type":"text", "label":"副标题时间", "key": "time"}}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源：{{{"type":"text", "label":"副标题来源", "key": "source"}}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编辑：陆金所</p>
     <div class="describe">
-        <p>在业内人士看来，A股市场整体估值水平走低是当下出资机构提高结构化杠杆的主观原因；但与此同时，银行与信托公司仍然能够开展结构化配资业务的根源，或仍与现行的分业监管体系衍生出的跨业监管套利日起连续三日出现的低开行情，不过午后大盘在成交带动下企稳回升，沪指最终收涨0.44%。</p>
+        <p>{{{"type":"textarea", "label":"红字描述", "key": "desc"}}}</p>
     </div>
-    <p class="part1">交易数据显示，12月31日至1月15日，沪深两融余额已从1.19万亿缩水至0.99万亿，连续11个交易日缩水规模达2000亿。A股的震荡行情正在与融资盘的变化发生新的化学反应。市场下行压力之下，沪深两融规模已进一步缩水至1万亿规模之下，而估值的连续走低，正在让业内对两融债权及其他相关收益权转让、ABS等业务的风险关注有加。另一方面，21世纪经济报道记者独家获悉，在股指连续走低的背景下，部分银行开始降低对A股业务的风险评估门槛，有的股份制银行则重启结构化配资优先级份额投资业务。值得一提的是，由于此前券商资管、基金子公司口径的该项业务受到监管限制，因此目前结构化通道提供方以信托公司为主，而部分比例已较此前的1：2-1：2.5进一步提高。</p>
-    <p class="words">在业内人士看来，A股市场整体估值水平走低是当下出资机构提高结构化杠杆的主观原因；但与此同时，银行与信托公司仍然能够开展结构化配资业务的根源，或仍与现行的分业监管体系衍生出的跨业监管套利不无关联融资盘风险抬升18日，沪深两市指数双双再现“低开”。上证指数和深圳成指分别低开达1.39%和1.36%，值得一提的是，这已是大盘自1月14日起连续三日出现的低开行情，不过午后大盘在成交带动下企稳回升，沪指最终收涨0.44%。</p>
-    <p class="words">虽然大盘最终企稳，但截至当日收盘，沪指仍较12月25日的“高位”累计下跌达19.34%。人士认为，A股连续快速走跌过程中，连日跳空“低开”的走势正在对融资融券、结构化杠杆专户等融资盘的风控造成影响。大盘连续低开会导致一个问题，就是许多股票可能会出现跳空，也就是说在部分价格上是没有成交的，这种情况对融资盘的风控容易带来难度。”北京一家中型券商非银金融分析师表示，“因为融资盘要盯市，跳空的频繁实际上是下跌速度的加快，这容易拉抬两融、杠杆专户的风控难度。”有券商人士透露，在A股市场连续快速走跌下，两融业务的风险正在被予以更多关注。</p>
-    <p class="words">虽然大盘最终企稳，但截至当日收盘，沪指仍较12月25日的“高位”累计下跌达19.34%。人士认为，A股连续快速走跌过程中，连日跳空“低开”的走势正在对融资融券、结构化杠杆专户等融资盘的风控造成影响。大盘连续低开会导致一个问题，就是许多股票可能会出现跳空，也就是说在部分价格上是没有成交的，这种情况对融资盘的风控容易带来难度。”北京一家中型券商非银金融分析师表示，“因为融资盘要盯市，跳空的频繁实际上是下跌速度的加快，这容易拉抬两融、杠杆专户的风控难度。”有券商人士透露，在A股市场连续快速走跌下，两融业务的风险正在被予以更多关注。</p>
+
+    [[
+        {{{"type": "loop", "label": "段落", "key": "pgh"}}}
+        {{ for (var i = 0, len = it.data.length; i < len; i++) { }}
+            {{var line = i == 0 ? 'first' : i == len - 1 ? 'last' : '';}}
+            <p class="words {{=line}}">{{=it.data[i].value}}</p>
+        {{ } }}
+    ]]
+    
     <div class="form">
     <table>
         <caption class="jijin-title">保本基金</caption>
         <thead>
             <tr>
                  <th class="jijin-name list1">基金名称</th>
-                 <th class="jijin-profit list1">近一年收益</th>
+                 <th class="jijin-profit list1">{{{"type":"select", "label":"显示数据", "key": "fieldText", "parseIgnore": true}}}</th>
                  <th class="jijin-fee list1">手续费</th>
                  <th class="jijin-operate list1">操作</th>
            </tr>
         </thead>
-        <tbody>
-           <tr class="odd">
-                 <td class="jijin-pro list-title">(000663) 申万菱信量化小盘股票LOF</td>
-                 <td class="jijin-num">124.98%</td>
-                 <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
-           </tr>
-           <tr class="even">
-                 <td class="list-title">(000663) 申万菱信量化小盘股票LOF</td>
-                 <td class="jijin-num">124.98%</td>
-                 <td class="jijin-num "><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
-           </tr>
-           <tr class="odd">
-                 <td class="jijin-pro list-title">(000663) 国投瑞银美丽中国混合</td>
-                 <td class="jijin-num">108.34%</td>
-                 <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
-           </tr>
-           <tr  class="even">
-                 <td class="list-title">(000663) 申万菱信量化小盘股票LOF</td>
-                 <td class="jijin-num">124.98%</td>
-                 <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
-           </tr>
-           <tr class="odd">
-                 <td class="jijin-pro  list-title">(000663) 国投瑞银美丽中国混合</td>
-                 <td class="jijin-num">108.34%</td>
-                 <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
-           </tr>
-           <tr  class="even">
-                 <td class="list-title">(000663) 申万菱信量化小盘股票LOF</td>
-                 <td class="jijin-num">124.98%</td>
-                 <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
-           </tr>
-           <tr class="odd">
-                 <td class="jijin-pro  list-title">(000663) 国投瑞银美丽中国混合</td>
-                 <td class="jijin-num">108.34%</td>
-                 <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-stop.png" onmouseover='src="images/btn-stop-hover.png"' onmouseout='src="images/btn-stop.png"' alt=""/></td>
-           </tr>
+        <tbody id="fund-list">
+
         </tbody>
         <tfoot>
             <tr>
@@ -110,8 +74,19 @@
         <p class="copyright">版权所有 © 上海陆家嘴国际金融资产交易市场股份有限公司未经许可不得复制、转载或摘编，违者必究!<br>Copyright Shanghai Lujiazui International Financial Asset Exchange Co.,LTD. ALL Rights Reserved<br>沪 ICP 证 B2-20120023号&emsp;&emsp;&emsp;沪 ICP 备 12032241 号-7</p>
     </div>
 </div>
-
+<script id="fund-template" type="text/template">
+    {{ for (var i = 0, len = it.data.length; i < len; i++) { }}
+        {{ var line = i % 2 ? 'odd' : 'even', lineFund = it.data[i];}}
+        <tr class="{{=line}}">
+            <td class="list-title">({{=lineFund.fundCode}}) {{=lineFund.displayName}}</td>
+            <td class="jijin-num">{{=lineFund.fundData}}</td>
+            <td class="jijin-num"><span class="{{=lineFund.feeStyle}}">{{=lineFund.fee}}</span>  {{=lineFund.feeDiscount}}</td>
+            <td><img src="images/btn.png"></td>
+        </tr>
+    {{ } }}
+</script>
 <script type="text/javascript" src="https://static.lufaxcdn.com/config/js/lib/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="https://static.lufaxcdn.com/lufax-public/lufax-lib/lufax-lib.9a4de42b.js"></script>
 <script type="text/javascript">
     $(function(){
         $(".currentPage").html("保本基金 安心来袭");

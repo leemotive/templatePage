@@ -66,7 +66,7 @@ module.exports = {
         var activityName = req.body.activityName;
         var templateName = req.body.templateName;
 
-        copyTemplate(templateName, activityName);
+        copyTemplate(templateName, activityName, true);
 
         req.file('img').upload(function (err, uploadedImages) {
             if (err) {
@@ -111,8 +111,8 @@ module.exports = {
     }
 }
 
-function copyTemplate (templateName, activityName) {
-    if (!fs.existsSync(activityDir + activityName)){
+function copyTemplate (templateName, activityName, notCopyWhenExist) {
+    if (!fs.existsSync(activityDir + activityName) || !notCopyWhenExist){
         copyDir.sync(templateDir + templateName, activityDir + activityName);
     }
 }

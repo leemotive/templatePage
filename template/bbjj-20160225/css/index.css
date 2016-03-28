@@ -132,7 +132,7 @@ td{
     text-align: center;
     font-size: 14px;
 }
-.even td{
+.odd td{
     background: #f3f3f2;
 }
 td.list-title{
