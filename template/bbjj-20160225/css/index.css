@@ -15,7 +15,7 @@ a:hover{ text-decoration:underline;}
     width: 1170px;
     position: relative;
     border: 1px solid #e8e8e8;
-    margin-top:20px; 
+    margin-top:20px;
 }
 .layout {
     background:#fefdf6;
@@ -41,11 +41,11 @@ a:hover{ text-decoration:underline;}
     padding-bottom: 15px;
     text-align: center;
 }
-.layout .describe{  
+.layout .describe{
     padding: 0px 70px;
 }
 .layout .describe p {
-    background-color:#ffffff; 
+    background-color:#ffffff;
     border:1px solid #ede6d6;
     padding: 25px 16px;
     font-size: 14px;
@@ -117,7 +117,7 @@ a:hover{ text-decoration:underline;}
     width: 1170px;
     position: relative;
     background-color: #f9f9f9;
-    margin-top:20px; 
+    margin-top:20px;
     padding: 16px 2px;
     margin-bottom: 50px;
 }
@@ -141,4 +141,26 @@ td.list-title{
 }
 tbody td{
     border-bottom: 1px solid #ede6d6;
+}
+.btn-invest {
+  background: url("../img/btn.png") no-repeat 0px 0px;
+  display: inline-block;
+  width: 99px;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+.btn-invest:hover {
+  background: url("../img/btn.png") no-repeat 0px -50px;
+}
+.btn-stop {
+  background: url("../img/btn.png") no-repeat 0px -100px;
+  display: inline-block;
+  width: 99px;
+  height: 30px;
+  text-align: center;
+  vertical-align: middle;
+}
+.btn-stop:hover {
+  background: url("../img/btn.png") no-repeat 0px -150px;
 }

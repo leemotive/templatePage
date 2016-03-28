@@ -22,7 +22,8 @@
 
 <div class="banner">
     <div class="pic"><img src="images/banner.jpg">
-        <p>市场不走心，投资不舒心，安慰一下!给你只既能买打折股票，又能0门槛投资高门槛的定向增发股，又有基金公司高管认购千万与你共担风险的基金，九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!</p>
+        <!-- <p>市场不走心，投资不舒心，安慰一下!给你只既能买打折股票，又能0门槛投资高门槛的定向增发股，又有基金公司高管认购千万与你共担风险的基金，九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!</p> -->
+        <p>{{{"type":"textarea", "label":"大标题", "key": "desc"}}}</p>
     </div>
 </div>
 
@@ -31,16 +32,19 @@
 <div class="layout">
     <div class="jijin-title">
         <p class="recommend clearfix"><span>推荐人</span>:人民币贬值热点</p>
-        <p class="reason look clearfix"><span>推荐理由：能涨搞跌看我</span></p>
-        <p class="reason hot"><span>推荐理由：大热之选 ，品质之选</span></p>
-    </div>  
-    <p class="word">市场不走心，投资不舒心，安慰一下!给你只既能买打折股票，又能0门槛投资高门槛的定向增发股，又有基金公司高管认购千万与你共担风险的基金，九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!九泰锐富混合发起式基金(168102)!</p>
+        <!-- <p class="reason look clearfix"><span>推荐理由：能涨搞跌看我</span></p> -->
+        <p class="reason look clearfix"><span>推荐理由：{{{"type":"text", "label":"推荐理由1", "key": "reason1"}}}</span></p>
+        <!-- <p class="reason hot"><span>推荐理由：大热之选 ，品质之选</span></p> -->
+        <p class="reason hot"><span>推荐理由：{{{"type":"text", "label":"推荐理由2", "key": "reason2"}}}</span></p>
+    </div>
+    <!-- <p class="word">市场不走心，投资不舒心，安慰一下!给你只既能买打折股票，又能0门槛投资高门槛的定向增发股，又有基金公司高管认购千万与你共担风险的基金，九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!九泰锐富混合发起式基金(168102)!</p> -->
+        <p class="word">{{{"type":"textarea", "label":"表格描述1", "key": "form-desc1"}}}</p>
     <div class="form">
     <table>
         <thead>
             <tr>
                  <th class="jijin-name list1">基金名称</th>
-                 <th class="jijin-profit list1">近一年收益</th>
+                 <th class="jijin-profit list1">{{{"type":"select", "label":"显示数据", "key": "fieldText", "parseIgnore": true}}}</th>
                  <th class="jijin-fee list1">手续费</th>
                  <th class="jijin-operate list1">操作</th>
            </tr>
@@ -50,48 +54,48 @@
                  <td class="jijin-pro list-title">(000663) 申万菱信量化小盘股票LOF</td>
                  <td class="jijin-num">124.98%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-stop.png" onmouseover='src="images/btn-stop-hover.png"' onmouseout='src="images/btn-stop.png"' alt=""/></td>
+                 <td><i class="btn-stop"></i></td>
            </tr>
            <tr class="even">
                  <td class="list-title">(000663) 申万菱信量化小盘股票LOF</td>
                  <td class="jijin-num">124.98%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr class="odd">
                  <td class="jijin-pro list-title">(000663) 国投瑞银美丽中国混合</td>
                  <td class="jijin-num">108.34%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr  class="even">
                  <td class="list-title">(000663) 申万菱信量化小盘股票LOF</td>
                  <td class="jijin-num">124.98%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr class="odd">
                  <td class="jijin-pro  list-title">(000663) 国投瑞银美丽中国混合</td>
                  <td class="jijin-num">108.34%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr  class="even">
                  <td class="list-title">(000663) 申万菱信量化小盘股票LOF</td>
                  <td class="jijin-num">124.98%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr class="odd">
                  <td class="jijin-pro  list-title">(000663) 国投瑞银美丽中国混合</td>
                  <td class="jijin-num">108.34%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="4" class="jijin-date">数据日期：2016年3月18日</td>
+                <td colspan="4" class="jijin-date">数据日期：<span id="dataDate"></td>
             </tr>
         </tfoot>
     </table>
@@ -100,16 +104,19 @@
 <div class="layout">
     <div class="jijin-title">
         <p class="recommend clearfix"><span>推荐人</span>:人民币贬值热点</p>
-        <p class="reason look clearfix"><span>推荐理由：能涨搞跌看我</span></p>
-        <p class="reason hot"><span>推荐理由：大热之选 ，品质之选</span></p>
-    </div>  
-    <p class="word">市场不走心，投资不舒心，安慰一下!给你只既能买打折股票，又能0门槛投资高门槛的定向增发股，又有基金公司高管认购千万与你共担风险的基金，九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!九泰锐富混合发起式基金(168102)!</p>
+        <!-- <p class="reason look clearfix"><span>推荐理由：能涨搞跌看我</span></p> -->
+        <p class="reason look clearfix"><span>推荐理由：{{{"type":"text", "label":"推荐理由3", "key": "reason3"}}}</span></p>
+        <!-- <p class="reason hot"><span>推荐理由：大热之选 ，品质之选</span></p> -->
+        <p class="reason hot"><span>推荐理由：{{{"type":"text", "label":"推荐理由4", "key": "reason4"}}}</span></p>
+    </div>
+    <!-- <p class="word">市场不走心，投资不舒心，安慰一下!给你只既能买打折股票，又能0门槛投资高门槛的定向增发股，又有基金公司高管认购千万与你共担风险的基金，九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!九泰锐富混合发起式基金(168102)!</p> -->
+        <p class="word">{{{"type":"textarea", "label":"表格描述2", "key": "form-desc2"}}}</p>
     <div class="form">
     <table>
         <thead>
             <tr>
                  <th class="jijin-name list1">基金名称</th>
-                 <th class="jijin-profit list1">近一年收益</th>
+                 <th class="jijin-profit list1">{{{"type":"select", "label":"显示数据", "key": "fieldText", "parseIgnore": true}}}</th>
                  <th class="jijin-fee list1">手续费</th>
                  <th class="jijin-operate list1">操作</th>
            </tr>
@@ -119,66 +126,69 @@
                  <td class="jijin-pro list-title">(000663) 申万菱信量化小盘股票LOF</td>
                  <td class="jijin-num">124.98%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-stop.png" onmouseover='src="images/btn-stop-hover.png"' onmouseout='src="images/btn-stop.png"' alt=""/></td>
+                 <td><i class="btn-stop"></i></td>
            </tr>
            <tr class="even">
                  <td class="list-title">(000663) 申万菱信量化小盘股票LOF</td>
                  <td class="jijin-num">124.98%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr class="odd">
                  <td class="jijin-pro list-title">(000663) 国投瑞银美丽中国混合</td>
                  <td class="jijin-num">108.34%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr  class="even">
                  <td class="list-title">(000663) 申万菱信量化小盘股票LOF</td>
                  <td class="jijin-num">124.98%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr class="odd">
                  <td class="jijin-pro  list-title">(000663) 国投瑞银美丽中国混合</td>
                  <td class="jijin-num">108.34%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr  class="even">
                  <td class="list-title">(000663) 申万菱信量化小盘股票LOF</td>
                  <td class="jijin-num">124.98%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr class="odd">
                  <td class="jijin-pro  list-title">(000663) 国投瑞银美丽中国混合</td>
                  <td class="jijin-num">108.34%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="4" class="jijin-date">数据日期：2016年3月18日</td>
+                <td colspan="4" class="jijin-date">数据日期：<span id="dataDate"></td>
             </tr>
         </tfoot>
     </table>
     </div>
 </div>
 <div class="layout">
-    <div class="jijin-title">
+     <div class="jijin-title">
         <p class="recommend clearfix"><span>推荐人</span>:人民币贬值热点</p>
-        <p class="reason look clearfix"><span>推荐理由：能涨搞跌看我</span></p>
-        <p class="reason hot"><span>推荐理由：大热之选 ，品质之选</span></p>
-    </div>  
-    <p class="word">市场不走心，投资不舒心，安慰一下!给你只既能买打折股票，又能0门槛投资高门槛的定向增发股，又有基金公司高管认购千万与你共担风险的基金，九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!九泰锐富混合发起式基金(168102)!</p>
+        <!-- <p class="reason look clearfix"><span>推荐理由：能涨搞跌看我</span></p> -->
+        <p class="reason look clearfix"><span>推荐理由：{{{"type":"text", "label":"推荐理由5", "key": "reason5"}}}</span></p>
+        <!-- <p class="reason hot"><span>推荐理由：大热之选 ，品质之选</span></p> -->
+        <p class="reason hot"><span>推荐理由：{{{"type":"text", "label":"推荐理由6", "key": "reason6"}}}</span></p>
+    </div>
+    <!-- <p class="word">市场不走心，投资不舒心，安慰一下!给你只既能买打折股票，又能0门槛投资高门槛的定向增发股，又有基金公司高管认购千万与你共担风险的基金，九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!九泰锐富混合发起式基金(168102)!1月13-29日公开发售，可要抓紧喽!九泰锐富混合发起式基金(168102)!</p> -->
+        <p class="word">{{{"type":"textarea", "label":"表格描述3", "key": "form-desc3"}}}</p>
     <div class="form">
     <table>
         <thead>
             <tr>
                  <th class="jijin-name list1">基金名称</th>
-                 <th class="jijin-profit list1">近一年收益</th>
+                 <th class="jijin-profit list1">{{{"type":"select", "label":"显示数据", "key": "fieldText", "parseIgnore": true}}}</th>
                  <th class="jijin-fee list1">手续费</th>
                  <th class="jijin-operate list1">操作</th>
            </tr>
@@ -188,57 +198,58 @@
                  <td class="jijin-pro list-title">(000663) 申万菱信量化小盘股票LOF</td>
                  <td class="jijin-num">124.98%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-stop.png" onmouseover='src="images/btn-stop-hover.png"' onmouseout='src="images/btn-stop.png"' alt=""/></td>
+                 <td><i class="btn-stop"></i></td>
            </tr>
            <tr class="even">
                  <td class="list-title">(000663) 申万菱信量化小盘股票LOF</td>
                  <td class="jijin-num">124.98%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr class="odd">
                  <td class="jijin-pro list-title">(000663) 国投瑞银美丽中国混合</td>
                  <td class="jijin-num">108.34%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr  class="even">
                  <td class="list-title">(000663) 申万菱信量化小盘股票LOF</td>
                  <td class="jijin-num">124.98%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr class="odd">
                  <td class="jijin-pro  list-title">(000663) 国投瑞银美丽中国混合</td>
                  <td class="jijin-num">108.34%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
            <tr  class="even">
                  <td class="list-title">(000663) 申万菱信量化小盘股票LOF</td>
                  <td class="jijin-num">124.98%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                <td><i class="btn-invest"></i></td>
            </tr>
            <tr class="odd">
                  <td class="jijin-pro  list-title">(000663) 国投瑞银美丽中国混合</td>
                  <td class="jijin-num">108.34%</td>
                  <td class="jijin-num"><span>1.6%</span>  0.3%</td>
-                 <td><img src="images/btn-invest.png" onmouseover='src="images/btn-invest-hover.png"' onmouseout='src="images/btn-invest.png"' alt=""/></td>
+                 <td><i class="btn-invest"></i></td>
            </tr>
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="4" class="jijin-date">数据日期：2016年3月18日</td>
+                <td colspan="4" class="jijin-date">数据日期：<span id="dataDate"></td>
             </tr>
         </tfoot>
     </table>
     </div>
 </div>
 <div class="pic-foot">
-    <div class="state">
-        <p>郑重声明：天天基金网发布此信息目的在于传播更多信息，与本网站立场无关。天天基金网不保证该信息（包括但不限于文字、数据及图表）全部或者部分内容的准确性、真实性、完整性、有效性、及时性、原创性等。相关信息并未经过本网站证实</p>
-    </div>
+  <div class="state">
+    <!-- <p>郑重声明：天天基金网发布此信息目的在于传播更多信息，与本网站立场无关。天天基金网不保证该信息（包括但不限于文字、数据及图表）全部或者部分内容的准确性、真实性、完整性、有效性、及时性、原创性等。相关信息并未经过本网站证实</p> -->
+    <p>{{{"type":"textarea", "label":"声明", "key": "state"}}}</p>
+  </div>
 </div>
 </div>
 <div class="footer">
@@ -250,7 +261,8 @@
         <p class="copyright">版权所有 © 上海陆家嘴国际金融资产交易市场股份有限公司未经许可不得复制、转载或摘编，违者必究!<br>Copyright Shanghai Lujiazui International Financial Asset Exchange Co.,LTD. ALL Rights Reserved<br>沪 ICP 证 B2-20120023号&emsp;&emsp;&emsp;沪 ICP 备 12032241 号-7</p>
     </div>
 </div>
-
+<div id="fundIds" class="hidden" data-value="{{{"type":"text", "label":"基金Code", "key": "fundCode"}}}"></div>
+<div id="data-field" class="hidden" data-value="{{{"type":"select", "label":"显示数据", "key": "field", "options": [{"text":"日增长率","value":"dailyIncrease"},{"text":"近一个月","value":"oneMonIncrease"},{"text":"近三个月","value":"threeMonIncrease"},{"text":"近一年","value":"twelveMonIncrease"},{"text":"今年以来","value":"moreTwelveMonIncrease"},{"text":"成立以来","value":"totalIncrease"},{"text":"七日年化","value":"interestRatePerSevenDay"},{"text":"万份收益(元)","value":"benefitPerTenThousand"}]}}}"></div>
 <script type="text/javascript" src="https://static.lufaxcdn.com/config/js/lib/jquery-1.7.1.js"></script>
 <script type="text/javascript">
     $(function(){
