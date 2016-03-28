@@ -39,10 +39,10 @@
         this.uploadImage = function (file, activityName, templateName, callback) {
             $(file).closest('form').ajaxSubmit({
                 url: 'upload/activity/image',
-                data: {
-                    'activityName': activityName,
-                    'templateName': templateName
-                },
+                // data: {
+                //     'activityName': activityName,
+                //     'templateName': templateName
+                // },
                 success: function (res) {
                     callback && callback(res.data);
                 }
