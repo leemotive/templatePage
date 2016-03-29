@@ -223,3 +223,38 @@ table {
     color:#697d91;
     text-indent: 2em;
 }
+.op{
+    width: 80px;
+}
+.op-btn{
+    text-align: center;
+}
+.btn-invest{
+    background: #fc7946;
+    color: #ffffff;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+.btn-invest.btn-stop{
+    background: #d5d5d5;
+}
+@media (max-width: 359px) {
+    .pro{
+        max-width: 120px;
+    }
+}
+@media (min-width: 360px) {
+    .pro{
+        max-width: 150px;
+    }
+}
+@media (min-width: 400px) {
+    .pro{
+        max-width: 200px;
+    }
+}
+.@media (min-width: 768px) {
+    .pro{
+        max-width: 460px;
+    }
+}

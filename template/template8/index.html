@@ -42,18 +42,11 @@
                 <tr>
                     <th class="list1">基金名称</th>
                     <th class="list1">{{{"type":"select", "label":"显示数据", "key": "field1Text", "parseIgnore": true}}}</th>
-                    <th class="list1">操作</th>
+                    <th class="list1 op">操作</th>
                 </tr>
             </thead>
-            <tbody id="fund-list1">
-                <tr>
-                    <td class="">
-                        <div class="pro">630010富国城镇发展股票</div>
-                        <div class="code"><span class="fee">申购费<span class="line"> 1.2% </span> 0.12%</span></div>
-                    </td>
-                    <td class="jijin-num">278.98%</td>
-                    <td class="btn"><img src="images/btn.png"></td>
-                </tr>
+            <tbody id="fund-list1"  class="fund-list">
+                
             </tbody>
             <tfoot>
                 <tr>
@@ -76,10 +69,10 @@
                 <tr>
                     <th class="list1">基金名称</th>
                     <th class="list1">{{{"type":"select", "label":"显示数据", "key": "field2Text", "parseIgnore": true}}}</th>
-                    <th class="list1">操作</th>
+                    <th class="list1 op">操作</th>
                </tr>
             </thead>
-            <tbody id="fund-list2">
+            <tbody id="fund-list2" class="fund-list">
                 
             </tbody>
             <tfoot>
@@ -103,10 +96,10 @@
                 <tr>
                     <th class="list1">基金名称</th>
                     <th class="list1">{{{"type":"select", "label":"显示数据", "key": "field3Text", "parseIgnore": true}}}</th>
-                    <th class="list1">操作</th>
+                    <th class="list1 op">操作</th>
                 </tr>
             </thead>
-            <tbody id="fund-list3">
+            <tbody id="fund-list3" class="fund-list">
                 
             </tbody>
             <tfoot>
@@ -126,7 +119,23 @@
 </div>
 
 <script type="text/javascript" src="https://static.lufaxcdn.com/lufax-public/zepto/20140916.zepto.min.js"></script>
+<script type="text/javascript" src="./js/doT.min.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
 <script type="text/javascript" src="bridge.js"></script>
+<script id="fund-template" type="text/template">
+    {{ for (var i = 0, len = it.data.length; i < len; i++) { }}
+        {{ var line = i % 2 ? 'odd' : 'even', lineFund = it.data[i];}}
+        {{ var statusStyle = lineFund.productStatus == 'PAUSE' || lineFund.productStatus == 'CLOSED' ? 'btn-stop' : '';}}
+        <tr class="{{=line}}">
+            <td class="">
+                <div class="pro">{{=lineFund.fundCode}}{{=lineFund.displayName}}</div>
+                <div class="code"><span class="fee">申购费<span class="{{=lineFund.feeStyle}}"> {{=lineFund.fee}} </span> {{=lineFund.feeDiscount}}</span></div>
+            </td>
+            <td class="jijin-num {{=lineFund.fundDataDecrease}}">{{=lineFund.fundData}}</td>
+            <td class="op-btn"><a href="javascript:;" productId="{{=lineFund.id}}" class="btn-invest {{=statusStyle}}">{{=statusStyle?'暂停申购':'立即投资'}}</a></td>
+        </tr>
+    {{ } }}
+</script>
 <script>
 window.Bridge.call({
     "task":"title",
