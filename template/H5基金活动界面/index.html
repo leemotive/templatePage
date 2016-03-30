@@ -14,7 +14,7 @@
 </head>
 <style>
     .btn {
-       width: 80px;     
+       width: 80px;
     }
 
 </style>
@@ -41,7 +41,7 @@
                </tr>
             </thead>
             <tbody id="fund-list"  class="fund-list">
-                
+
             </tbody>
             <tfoot>
                 <tr>
@@ -64,7 +64,8 @@
 <script type="text/javascript" src="https://static.lufaxcdn.com/lufax-public/zepto/20140916.zepto.min.js"></script>
 <script type="text/javascript" src="./js/doT.min.js"></script>
 <script type="text/javascript" src="./js/index.js"></script>
-<script type="text/javascript" src="bridge.js"></script>
+
+<script type="text/javascript" src="//static.lufaxcdn.com/config/js/lib/bridge.js"></script>
 
 <script id="fund-template" type="text/template">
     {{ for (var i = 0, len = it.data.length; i < len; i++) { }}

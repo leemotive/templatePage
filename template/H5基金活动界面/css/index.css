@@ -21,7 +21,10 @@ body {
     -webkit-tap-highlight-color: rgba(0,0,0,0);
     -webkit-text-size-adjust: none;
     -webkit-overflow-scrolling: none;
-    background-color: #ea7211
+    background-color: #ea7211;
+    min-width:320px;
+    max-width:640px;
+    margin:0 auto;
 }
 
 ul,li,dl,dt,dd {
@@ -99,11 +102,13 @@ table {
     z-index: 9;
 }
 .message {
-        background: #fff;
+    background: #fff;
     margin: 20px;
     color:#13334d;
     border-bottom: 4px solid #f3b56d;
     font-size: 16px;
+    min-width:320px;
+    max-width:640px;
 }
 .message .title {
     text-align: center;
@@ -121,6 +126,8 @@ table {
     position: relative;
     background: white;
     border: 1px solid #d8e2e9;
+    min-width:320px;
+    max-width:640px;
 }
 
 .form table {
@@ -144,7 +151,7 @@ table {
     border-bottom: 1px solid #edf1f5;
 }
 .form .list1 {
-    text-align: center;    
+    text-align: center;
     font-size: 13px;
     border-bottom: 1px solid #edf1f5;
     color: #9dacb6;
@@ -179,7 +186,7 @@ table {
     padding: 0 3px;
 }
 .line {
-   text-decoration: line-through; 
+   text-decoration: line-through;
 }
 .message .word2 {
     padding: 20px;

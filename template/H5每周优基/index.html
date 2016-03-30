@@ -14,7 +14,7 @@
 </head>
 <style>
     .btn {
-       width: 80px;     
+       width: 80px;
     }
 
 </style>
@@ -27,7 +27,7 @@
 </script>
    <img src="{{{"type":"input", "label":"banner图片", "key": "bannerImg", "upload": true}}}">
    <div class="message">
-        <!-- <p class="word1">八成投资者看涨2016年A股市场  公私募如何看后市开年私募扎堆调研55家公司 6个股逆市上涨引关注 股市很好买财富荣获“2015财富管理机构年度大奖</p> -->        
+        <!-- <p class="word1">八成投资者看涨2016年A股市场  公私募如何看后市开年私募扎堆调研55家公司 6个股逆市上涨引关注 股市很好买财富荣获“2015财富管理机构年度大奖</p> -->
         <p class="word1">{{{"type":"textarea", "label":"页面描述", "key": "desc"}}}</p>
     </div>
     <div class="jijin-title">
@@ -46,7 +46,7 @@
                 </tr>
             </thead>
             <tbody id="fund-list1"  class="fund-list">
-                
+
             </tbody>
             <tfoot>
                 <tr>
@@ -73,7 +73,7 @@
                </tr>
             </thead>
             <tbody id="fund-list2" class="fund-list">
-                
+
             </tbody>
             <tfoot>
                 <tr>
@@ -100,7 +100,7 @@
                 </tr>
             </thead>
             <tbody id="fund-list3" class="fund-list">
-                
+
             </tbody>
             <tfoot>
                 <tr>
@@ -121,7 +121,8 @@
 <script type="text/javascript" src="https://static.lufaxcdn.com/lufax-public/zepto/20140916.zepto.min.js"></script>
 <script type="text/javascript" src="./js/doT.min.js"></script>
 <script type="text/javascript" src="./js/index.js"></script>
-<script type="text/javascript" src="bridge.js"></script>
+
+<script type="text/javascript" src="//static.lufaxcdn.com/config/js/lib/bridge.js"></script>
 <script id="fund-template" type="text/template">
     {{ for (var i = 0, len = it.data.length; i < len; i++) { }}
         {{ var line = i % 2 ? 'odd' : 'even', lineFund = it.data[i];}}
