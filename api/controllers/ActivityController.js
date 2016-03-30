@@ -107,6 +107,25 @@ module.exports = {
             code: '',
             data: undefined
         });
+    },
+
+    activityExists: function (req, res) {
+        var activityName = req.params.activityName;
+        if (!fs.existsSync(activityDir + activityName)) {
+            return res.json({
+                success: false,
+                message: '请生成活动页后再下载',
+                code: '',
+                data: false
+            });
+        } else {
+            return res.json({
+                success: true,
+                message: '',
+                code: '',
+                data: true
+            });
+        }
     }
 }
 

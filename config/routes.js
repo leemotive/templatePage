@@ -38,6 +38,7 @@ module.exports.routes = {
   'get /api/template': 'TemplateController.find',
   'get /api/template/:name': 'TemplateController.findOne',
   'post /api/activity': 'ActivityController.generate',
+  'get /api/activity/:activityName/exists': 'ActivityController.activityExists',
   'get /download/activity/:activityName': 'ActivityController.download',
   'post /upload/activity/image': 'ActivityController.uploadImage',
   'get /api/preview/:activity': 'ActivityController.preview'
