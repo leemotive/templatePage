@@ -51,7 +51,7 @@ module.exports = {
         var activityName = params.activityName;
 
         var zip = new Archiver('zip', {});
-        zip.directory(activityDir + activityName);
+        zip.directory(activityDir + activityName, activityName);
         zip.finalize();
         
         res.writeHead(200, {

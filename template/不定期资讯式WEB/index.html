@@ -82,7 +82,7 @@
             <td class="list-title">({{=lineFund.fundCode}}) {{=lineFund.displayName}}</td>
             <td class="jijin-num {{=lineFund.fundDataDecrease}}">{{=lineFund.fundData}}</td>
             <td class="jijin-num"><span class="{{=lineFund.feeStyle}}">{{=lineFund.fee}}</span>  {{=lineFund.feeDiscount}}</td>
-            <td><i class="btn-invest {{=statusStyle}}"></i></td>
+            <td><a href="//e.lufunds.com/jijin/detail?productId={{=lineFund.id}}"><i class="btn-invest {{=statusStyle}}"></i></a></td>
         </tr>
     {{ } }}
 </script>
