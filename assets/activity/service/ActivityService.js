@@ -33,7 +33,13 @@
         this.downloadActivity = function (activityName) {
             var $form = $('<form>', {action: '/download/activity/' + activityName, method: 'GET'});
 
-            $form.submit();
+            var q = $_ActivityResource.isActivityExists.get({activity: activityName}).$promise;
+
+            q.then(function (res) {
+                res.data ? $form.submit() : alert(res.message);
+
+            });
+
         };
 
         this.uploadImage = function (file, activityName, templateName, callback) {
