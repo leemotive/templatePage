@@ -12,7 +12,8 @@
             getTemplateList:            $resource('/api/template'),
             getTemplate:                $resource('/api/template/:name'),
             preview:                    $resource('/api/preview/:activity'),
-            generate:                   $resource('/api/activity')
+            generate:                   $resource('/api/activity'),
+            isActivityExists:             $resource('/api/activity/:activity/exists')
         };
     }
 

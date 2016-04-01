@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>保本基金 安心来袭 - 平安陆金所</title>
+<meta name="keywords" content="融资平台,投资平台,网上投资平台,小额投资平台,小额投资,个人小额投资,网上小额投资,小额投资理财,网上投资理财,投资好项目"/>
+<meta name="description" content="中国平安陆金所官方网站,是中国平安保险集团股份有限公司旗下成员,在健全的风险管控体系基础上,为中小企业及个人客户提供专业,可信赖的投融资服务,助您财富实现增值!"/>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="https://static.lufaxcdn.com/config/css/main_1018.css" />
+<link rel="shortcut icon" href="https://static.lufaxcdn.com/config/images/favicon-new.ico"/>
+<link rel="stylesheet" type="text/css" href="css/header.css"/>
+<link rel="stylesheet" type="text/css" href="css/index.css"/>
+<meta http-equiv="Content-Type" content="text/html;">
+</head>
+
+<body>
+<div class="header">
+    <div class="content clearfix">
+        <a href="//www.lu.com" target="_blank"><img src="images/logo.png" alt="" class="logo"/></a>
+        <span class="headLink"><a class="goHomepage" href="//www.lu.com" target="_blank">平安陆金所首页</a><span class="currentPage"></span></span>
+    </div>
+</div>
+<div class="box">
+<div class="layout">
+    <p class="title1">{{{"type":"text", "label":"大标题", "key": "title"}}}</p>
+    <p class="line"></p>
+    <p class="title2">{{{"type":"text", "label":"日期", "key": "date"}}}&nbsp;&nbsp;&nbsp;{{{"type":"text", "label":"时间", "key": "time"}}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;来源：{{{"type":"text", "label":"来源", "key": "source"}}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;编辑：陆金所</p>
+    <div class="describe">
+        <p>{{{"type":"textarea", "label":"红字描述", "key": "desc"}}}</p>
+    </div>
+    [[
+        {{{"type": "loop", "label": "段落", "key": "pgh"}}}
+        {{ for (var i = 0, len = it.data.length; i < len; i++) { }}
+            {{var line = i == 0 ? 'first' : i == len - 1 ? 'last' : '';}}
+            <p class="words {{=line}}">{{=it.data[i].value}}</p>
+        {{ } }}
+    ]]
+
+    <div class="form">
+    <table>
+        <caption class="jijin-title">保本基金</caption>
+        <thead>
+            <tr>
+                 <th class="jijin-name list1">基金名称</th>
+                 <th class="jijin-profit list1">{{{"type":"select", "label":"显示数据", "key": "fieldText", "parseIgnore": true}}}</th>
+                 <th class="jijin-fee list1">手续费</th>
+                 <th class="jijin-operate list1">操作</th>
+           </tr>
+        </thead>
+        <tbody id="fund-list">
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" class="jijin-date">数据日期：<span id="dataDate"></span></td>
+            </tr>
+        </tfoot>
+    </table>
+    </div>
+</div>
+</div>
+<div class="state">
+        <p>{{{"type":"textarea", "label":"声明", "key": "state"}}}</p>
+</div>
+<div class="footer">
+    <div class="content clearfix">
+        <div class="contactbox">
+            <i></i><p class="phoneNum">全国服务热线<br><span class="num">4008&nbsp;6666&nbsp;18</span> </p>
+            <p class="calltime">人工服务时间 8:00 - 22:00</p>
+        </div><p class="wechat"><img src="images/webchat.jpg" alt=""/> </p>
+        <p class="copyright">版权所有 © 上海陆家嘴国际金融资产交易市场股份有限公司未经许可不得复制、转载或摘编，违者必究!<br>Copyright Shanghai Lujiazui International Financial Asset Exchange Co.,LTD. ALL Rights Reserved<br>沪 ICP 证 B2-20120023号&emsp;&emsp;&emsp;沪 ICP 备 12032241 号-7</p>
+    </div>
+</div>
+<div id="fundIds" class="hidden" fundIds="{{{"type":"text", "label":"基金Code", "key": "fundCode"}}}"></div>
+<div id="data-field" class="hidden" data-value="{{{"type":"select", "label":"显示数据", "key": "field", "options": [{"text":"日增长率","value":"dailyIncrease"},{"text":"近一个月","value":"oneMonIncrease"},{"text":"近三个月","value":"threeMonIncrease"},{"text":"近一年","value":"twelveMonIncrease"},{"text":"今年以来","value":"moreTwelveMonIncrease"},{"text":"成立以来","value":"totalIncrease"},{"text":"七日年化","value":"interestRatePerSevenDay"},{"text":"万份收益(元)","value":"benefitPerTenThousand"}]}}}"></div>
+<script type="text/javascript" src="https://static.lufaxcdn.com/config/js/lib/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="https://static.lufaxcdn.com/lufax-public/lufax-lib/lufax-lib.9a4de42b.js"></script>
+<script id="fund-template" type="text/template">
+    {{ for (var i = 0, len = it.data.length; i < len; i++) { }}
+        {{ var line = i % 2 ? 'odd' : 'even', lineFund = it.data[i];}}
+        {{ var statusStyle = lineFund.productStatus == 'PAUSE' || lineFund.productStatus == 'CLOSED' ? 'btn-stop' : '';}}
+        <tr class="{{=line}}">
+            <td class="list-title">({{=lineFund.fundCode}}) {{=lineFund.displayName}}</td>
+            <td class="jijin-num {{=lineFund.fundDataDecrease}}">{{=lineFund.fundData}}</td>
+            <td class="jijin-num"><span class="{{=lineFund.feeStyle}}">{{=lineFund.fee}}</span>  {{=lineFund.feeDiscount}}</td>
+            <td><a href="//e.lufunds.com/jijin/detail?productId={{=lineFund.id}}"><i class="btn-invest {{=statusStyle}}"></i></a></td>
+        </tr>
+    {{ } }}
+</script>
+<script type="text/javascript">
+    $(function(){
+        $(".currentPage").html("保本基金 安心来袭");
+    });
+</script>
+<script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>
