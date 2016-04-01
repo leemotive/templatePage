@@ -14,7 +14,7 @@ a:hover{ text-decoration:underline;}
 .banner {
     width:100%;
     margin:auto;
-    background: url(../img/bg.jpg) 50% no-repeat;
+    background: url(.{{{"type":"text", "label":"banner的背景", "key": "bannerBg", "upload": true}}}) 50% no-repeat;
     position: relative;
 }
 

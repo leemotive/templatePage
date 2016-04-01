@@ -20,6 +20,15 @@ module.exports = {
         copyTemplate(templateName, activityName);
 
         var pageHTML = fs.readFileSync(templateDir + templateName + '/index.html', {encoding: 'utf-8'});
+        var styleSheet = fs.readFileSync(templateDir + templateName + '/css/index.css', {encoding: 'utf-8'});
+
+        styleSheet = styleSheet.replace(placeholderRgx, function (match, sub) {
+            var placeholder = JSON.parse(sub);
+            if (placeholder.type === 'loop') {
+                return match;
+            }
+            return params[placeholder.key];
+        });
 
         pageHTML = pageHTML.replace(placeholderRgx, function (match, sub) {
             var placeholder = JSON.parse(sub);
@@ -36,6 +45,7 @@ module.exports = {
             return factory({data:model});
         });
 
+        fs.writeFileSync(activityDir + activityName + '/css/index.css', styleSheet, {encoding: 'utf-8'});
         fs.writeFileSync(activityDir + activityName + '/index.html', pageHTML, {encoding: 'utf-8'});
 
         return res.json({

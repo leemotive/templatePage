@@ -25,9 +25,16 @@ module.exports = {
     findOne: function (req, res) {
         var templateName = req.params.name;
         var template = fs.readFileSync(templateDir + templateName + '/index.html', {encoding: 'utf-8'});
+        var cssTemplate = fs.readFileSync(templateDir + templateName + '/css/index.css', {encoding: 'utf-8'});
 
         var placeholders = [];
 
+        cssTemplate.replace(placeholderRgx, function (match, sub) {
+            var placeholder = JSON.parse(sub);
+            if (!placeholder.parseIgnore) {
+                placeholders.push(placeholder);
+            }
+        });
         template.replace(placeholderRgx, function (match, sub) {
             var placeholder = JSON.parse(sub);
             if (!placeholder.parseIgnore) {

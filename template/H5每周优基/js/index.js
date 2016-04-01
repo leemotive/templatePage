@@ -23,7 +23,7 @@
                 jsonp: 'jsonpcallback',
                 success: function (res) {
                     if (res.data) {
-                        var dataDate = res.dataDate.split(/\W+/);
+                        var dataDate = res.dataDate && res.dataDate.split(/\W+/) || [];
                         $.each(res.data, function (i, fund) {
                             fund.fundData = fund[dataField] ? (fund[dataField] * 100).toFixed(2) + '%' : '--';
                             fund.fundDataDecrease = fund[dataField] < 0 ? 'decrease' : '';
@@ -56,7 +56,9 @@
 
                         var html = factory(res);
                         fundList.html(html);
-                        $('#dataDate' + index).html(dataDate[2] + '年' + monthName(dataDate[0]) + '月' + dataDate[1] + '日');
+                        if (dataDate.length > 2) {
+                            $('#dataDate' + index).html(dataDate[2] + '年' + monthName(dataDate[0]) + '月' + dataDate[1] + '日');
+                        }
                     }
                 }
             });
