@@ -6,6 +6,7 @@ var templates;
 var templateDir = 'template/';
 var activityDir = 'activity/';
 var placeholderRgx = /{{({.+?})}}/g;
+var loopPlaceholderRgxN = /\[\[({.+})(\[.+\])((?:.|\s)*?)\]\]/g;
 
 fs.readdir(templateDir, function (err, files) {
     templates = files;
@@ -40,6 +41,12 @@ module.exports = {
             if (!placeholder.parseIgnore) {
                 placeholders.push(placeholder);
             }
+        });
+        template.replace(loopPlaceholderRgxN, function (match, key, holders) {
+            var placeholder = JSON.parse(key);
+            placeholder.placeholders = JSON.parse(holders);
+            placeholders.push(placeholder);
+            //console.log(placeholder);
         });
         return res.json({
             success: true,

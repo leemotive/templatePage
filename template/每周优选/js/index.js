@@ -1,11 +1,11 @@
 ;(function () {
     $(function () {
-        var template, factory;
+        var template, factory, listSize;
         
         template = $('#fund-template').html();
         factory = doT.template(template);
-
-        for (var index = 1; index < 4; index++) {
+        listSize = Number($('#fundTableSize').val());
+        for (var index = 1; index <= listSize; index++) {
             getFundList(index);
         }
 

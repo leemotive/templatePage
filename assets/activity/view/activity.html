@@ -14,16 +14,9 @@
         <div class="placeholder-list form-group" ng-repeat="phd in ac.targetTemplate.placeholders">
             <span class="label">{{phd.label}}:</span>
             <div class="field">
-                <textarea class="form-control" ng-if="phd.type == 'textarea'" ng-model="phd.value"></textarea>
+                <textarea class="form-control" ng-if="phd.type == 'textarea'" ng-model="phd.value" placeholder="{{phd.placeholder}}"></textarea>
                 <select class="form-control" ng-if="phd.type == 'select'" ng-options="op.value as op.text for op in phd.options" ng-model="phd.value"></select>
-                <div class="loop" ng-if="phd.type == 'loop'" ng-init="phd.value = []">
-                    <input type="button" class="btn btn-info btn-sm" value="添加" ng-click="phd.value.unshift({})">
-                    <input type="button" class="btn btn-danger btn-sm" value="删除" ng-click="phd.value.shift()">
-                    <textarea class="form-control" ng-repeat-start="v in phd.value track by $index" ng-model="v.value"></textarea>
-                    <input type="button" class="btn btn-info btn-sm" value="添加" ng-click="phd.value.splice($index + 1, 0, {})" />
-                    <input type="button" class="btn btn-danger btn-sm" ng-repeat-end value="删除" ng-click="phd.value.splice($index + 1, 1)" />
-                </div>
-                <input class="form-control" ng-if="phd.type != 'textarea' && phd.type != 'select' && phd.type != 'loop'" type="{{phd.type}}" ng-model="phd.value" />
+                <input class="form-control" ng-if="phd.type != 'textarea' && phd.type != 'select' && phd.type != 'loop' && phd.type != 'dot'" type="{{phd.type}}" ng-model="phd.value" placeholder="{{phd.placeholder}}" />
                 <form class="" ng-if="phd.upload" action="/upload/template/image" enctype="multipart/form-data" method="POST" name="ac.uploadForm">
                     <div class="img-upload">
                         <input type="hidden" name="templateName" value="{{ac.targetTemplate.name}}">
@@ -31,8 +24,53 @@
                         <input type="file" name="img">
                         <input type="button" class="btn btn-primary btn-sm" value="上传" ng-click="ac.uploadImage($event, phd)">
                     </div>
-
                 </form>
+
+                <div class="loop" ng-if="phd.type == 'loop'" ng-init="phd.value = []">
+                    <input type="button" class="loop-btn btn btn-info btn-sm" value="添加" ng-click="phd.value.unshift({})">
+                    <input type="button" class="btn btn-danger btn-sm" value="删除" ng-click="phd.value.shift()">
+                    <div ng-repeat-start="v in phd.value track by $index" class="loop-line">
+                        <div ng-repeat="hd in phd.placeholders" class="placeholder-list">
+                            <span class="label">{{hd.label}}:</span>
+                            <div class="field">
+                                <input type="text" class="form-control" ng-if="hd.href" ng-model="v[hd.key+'Href']" placeholder="请添加超链接地址" />
+                                <textarea class="form-control" ng-if="hd.type == 'textarea'" ng-model="v[hd.key]" placeholder="{{hd.placeholder}}"></textarea>
+                                <select class="form-control" ng-if="hd.type == 'select'" ng-options="op.value as op.text for op in hd.options" ng-model="v[hd.key]"></select>
+                                <input class="form-control" ng-if="hd.type != 'textarea' && hd.type != 'select' && hd.type != 'loop'" type="{{hd.type}}" ng-model="v[hd.key]" placeholder="{{hd.placeholder}}" />
+                                <form class="" ng-if="hd.upload" action="/upload/template/image" enctype="multipart/form-data" method="POST" name="ac.uploadForm">
+                                    <div class="img-upload">
+                                        <input type="hidden" name="templateName" value="{{ac.targetTemplate.name}}">
+                                        <input type="hidden" name="activityName" value="{{ac.activityName}}">
+                                        <input type="file" name="img">
+                                        <input type="button" class="btn btn-primary btn-sm" value="上传" ng-click="ac.uploadImage($event, hd)">
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="button" class="loop-btn btn btn-info btn-sm" value="添加" ng-click="phd.value.splice($index + 1, 0, {})" />
+                    <input type="button" class="btn btn-danger btn-sm" ng-repeat-end value="删除" ng-click="phd.value.splice($index + 1, 1)" />
+                </div>
+
+                <div ng-if="phd.type == 'dot'" ng-init="phd.value = {}" class="dot">
+                    <div ng-repeat="hd in phd.placeholders" class="placeholder-list">
+                        <span class="label">{{hd.label}}:</span>
+                        <div class="field">
+                            <input type="text" ng-if="hd.href" ng-model="phd.value[hd.key+'Href']" />
+                            <textarea class="form-control" ng-if="hd.type == 'textarea'" ng-model="phd.value[hd.key]" placeholder="{{hd.placeholder}}"></textarea>
+                            <select class="form-control" ng-if="hd.type == 'select'" ng-options="op.value as op.text for op in hd.options" ng-model="phd.value[hd.key]"></select>
+                            <input class="form-control" ng-if="hd.type != 'textarea' && hd.type != 'select' && hd.type != 'loop'" type="{{hd.type}}" ng-model="phd.value[hd.key]" placeholder="{{hd.placeholder}}" />
+                            <form class="" ng-if="hd.upload" action="/upload/template/image" enctype="multipart/form-data" method="POST" name="ac.uploadForm">
+                                <div class="img-upload">
+                                    <input type="hidden" name="templateName" value="{{ac.targetTemplate.name}}">
+                                    <input type="hidden" name="activityName" value="{{ac.activityName}}">
+                                    <input type="file" name="img">
+                                    <input type="button" class="btn btn-primary btn-sm" value="上传" ng-click="ac.uploadImage($event, hd)">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="operator">

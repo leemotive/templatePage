@@ -27,11 +27,10 @@
     <div class="describe">
         <p>{{{"type":"textarea", "label":"红字描述", "key": "desc"}}}</p>
     </div>
-    [[
-        {{{"type": "loop", "label": "段落", "key": "pgh"}}}
+    [[{"type": "loop", "label": "段落", "key": "pgh"}[{"type": "text", "key": "cont"}]
         {{ for (var i = 0, len = it.data.length; i < len; i++) { }}
             {{var line = i == 0 ? 'first' : i == len - 1 ? 'last' : '';}}
-            <p class="words {{=line}}">{{=it.data[i].value}}</p>
+            <p class="words {{=line}}">{{=it.data[i].cont}}</p>
         {{ } }}
     ]]
 

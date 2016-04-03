@@ -7,6 +7,7 @@ var templateDir = 'template/';
 var activityDir = 'activity/';
 var placeholderRgx = /{{({.+?})}}/g;
 var loopPlaceholderRgx = /\[\[(?:.|\s)*?{{({.+?})}}((?:.|\s)*?)\]\]/g;
+var loopPlaceholderRgxN = /\[\[({.+})(\[.+\])((?:.|\s)*?)\]\]/g;
 
 module.exports = {
 
@@ -37,12 +38,19 @@ module.exports = {
             }
             return params[placeholder.key];
         });
-        pageHTML = pageHTML.replace(loopPlaceholderRgx, function (match, sub, template) {
+        /*pageHTML = pageHTML.replace(loopPlaceholderRgx, function (match, sub, template) {
             var placeholder = JSON.parse(sub);
             var model = params[placeholder.key];
 
             var factory = doT.template(template);
             return factory({data:model});
+        });*/
+        pageHTML = pageHTML.replace(loopPlaceholderRgxN, function (match, key, holders, template) {
+            var placeholder =JSON.parse(key);
+            var model = params[placeholder.key];
+            doT.templateSettings.strip = false;
+            var factory = doT.template(template);
+            return factory({data: model});
         });
 
         fs.writeFileSync(activityDir + activityName + '/css/index.css', styleSheet, {encoding: 'utf-8'});

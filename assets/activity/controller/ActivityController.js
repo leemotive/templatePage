@@ -40,6 +40,30 @@
                         }
                     })
                 }
+                if (ph.type === 'loop') {
+                    ph.value.forEach(function (value) {
+                        ph.placeholders.forEach(function (lph) {
+                            if (lph.type === 'select') {
+                                lph.options.forEach(function (op) {
+                                    if (op.value === value[lph.key]) {
+                                        value[lph.key + 'Text'] = op.text;
+                                    }
+                                });
+                            }
+                        });
+                    });
+                }
+                if (ph.type === 'dot') {
+                    ph.placeholders.forEach(function (dph) {
+                        if (dph.type === 'select') {
+                            dph.options.forEach(function (op) {
+                                if (op.value === ph.value[dph.key]) {
+                                    ph.value[dph.key + 'Text'] = op.text;
+                                }
+                            });
+                        }
+                    });
+                }
             });
             params = params || [];
             params.activityName = vm.activityName;
