@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <img src="./img/local.jpg">
+    <img src="{{{"type":"text", "label":"上传图片","key":"pic","placeholder":"请上传一张图片", "upload":true}}}" >
+    <header>{{{"type":"text", "label":"页面标题","key":"title"}}}</header>
+
+    <div>
+        {{{"type":"select","label":"季度","key":"season","options":[{"text":"第一季度","value":"1"},{"text":"第二季度","value":"2"},{"text":"第三季度","value":"3"},{"text":"第四季度","value":"4"}]}}}
+    </div>
+    <div>{{{"parseIgnore": true, "key":"seasonText"}}}</div>
+    <div>
+        [[{"type":"loop", "label":"正文", "key":"content"}[{"type":"textarea","label":"摘要","key":"title"},{"type":"textarea","label":"内容","key":"paragraph"}]
+            {{ for(var i = 0; i < it.data.length; i++) { }}
+                {{ var line = it.data[i]; }}
+                <div>{{=line.title}}</div>
+                <p>{{=line.paragraph}}</p>
+            {{ } }}
+        ]]
+    </div>
+    <div>
+        [[{"type":"dot", "label":"图片链接", "key":"outimg"}[{"type":"text","label":"图片","key":"src", "upload":true, "href": true,"placeholder":"请上传一张图片"}]
+            {{ if (it.data.srcHref) { }}
+                <a href="{{=it.data.srcHref}}">
+            {{ } }}
+            <img src="{{=it.data.src}}">
+            {{ if (it.data.srcHref) { }}
+                </a>
+            {{ } }}
+        ]]
+    </div>
+</body>
+</html>
