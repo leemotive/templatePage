@@ -114,10 +114,10 @@ module.exports = {
     preview: function (req, res) {
         var activityName = req.params.activity;
 
-        if (fs.existsSync('./assets/preview/' + activityName)) {
-            del.sync('./assets/preview/' + activityName + '/*');
+        if (fs.existsSync('./.tmp/public/preview/' + activityName)) {
+            del.sync('./.tmp/public/preview/' + activityName + '/*');
         }
-        copyDir.sync(activityDir + activityName, './assets/preview/' + activityName);
+        copyDir.sync(activityDir + activityName, './.tmp/public/preview/' + activityName);
 
         return res.json({
             success: true,
