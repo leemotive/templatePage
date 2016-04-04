@@ -56,7 +56,7 @@
                     <div ng-repeat="hd in phd.placeholders" class="placeholder-list">
                         <span class="label">{{hd.label}}:</span>
                         <div class="field">
-                            <input type="text" ng-if="hd.href" ng-model="phd.value[hd.key+'Href']" />
+                            <input class="form-control" type="text" ng-if="hd.href" ng-model="phd.value[hd.key+'Href']" placeholder="请添加超链接地址" />
                             <textarea class="form-control" ng-if="hd.type == 'textarea'" ng-model="phd.value[hd.key]" placeholder="{{hd.placeholder}}"></textarea>
                             <select class="form-control" ng-if="hd.type == 'select'" ng-options="op.value as op.text for op in hd.options" ng-model="phd.value[hd.key]"></select>
                             <input class="form-control" ng-if="hd.type != 'textarea' && hd.type != 'select' && hd.type != 'loop'" type="{{hd.type}}" ng-model="phd.value[hd.key]" placeholder="{{hd.placeholder}}" />
