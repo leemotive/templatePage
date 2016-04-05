@@ -8,6 +8,7 @@ var activityDir = 'activity/';
 var placeholderRgx = /{{({.+?})}}/g;
 var loopPlaceholderRgx = /\[\[(?:.|\s)*?{{({.+?})}}((?:.|\s)*?)\]\]/g;
 var loopPlaceholderRgxN = /\[\[({.+})(\[.+\])((?:.|\s)*?)\]\]/g;
+var crossPlaceholderRgx = /{{({.+?})}}|\[\[({.+})(\[.+\])((?:.|\s)*?)\]\]/g;
 
 module.exports = {
 
@@ -20,7 +21,26 @@ module.exports = {
 
         copyTemplate(templateName, activityName);
 
-        var pageHTML = fs.readFileSync(templateDir + templateName + '/index.html', {encoding: 'utf-8'});
+        var files = JSON.parse(fs.readFileSync(templateDir + templateName + '/config.json', {encoding: 'utf-8'})).templates;
+        files.forEach(function (filepath) {
+            var placeholder;
+            page = fs.readFileSync(templateDir + templateName + filepath, {encoding: 'utf-8'});
+            page = page.replace(crossPlaceholderRgx, function (match, sub, key, holders, template) {
+                if (match.charAt(0) === '[') {
+                    placeholder = JSON.parse(key);
+                    var model = params[placeholder.key];
+                    doT.templateSettings.strip = false;
+                    var factory = doT.template(template);
+                    return factory({data: model});
+                } else {
+                    placeholder = JSON.parse(sub);
+                    return params[placeholder.key];
+                }
+            });
+            fs.writeFileSync(activityDir + activityName + filepath, page, {encoding: 'utf-8'});
+        });
+
+        /*var pageHTML = fs.readFileSync(templateDir + templateName + '/index.html', {encoding: 'utf-8'});
         var styleSheet = fs.readFileSync(templateDir + templateName + '/css/index.css', {encoding: 'utf-8'});
 
         styleSheet = styleSheet.replace(placeholderRgx, function (match, sub) {
@@ -38,13 +58,6 @@ module.exports = {
             }
             return params[placeholder.key];
         });
-        /*pageHTML = pageHTML.replace(loopPlaceholderRgx, function (match, sub, template) {
-            var placeholder = JSON.parse(sub);
-            var model = params[placeholder.key];
-
-            var factory = doT.template(template);
-            return factory({data:model});
-        });*/
         pageHTML = pageHTML.replace(loopPlaceholderRgxN, function (match, key, holders, template) {
             var placeholder =JSON.parse(key);
             var model = params[placeholder.key];
@@ -54,7 +67,7 @@ module.exports = {
         });
 
         fs.writeFileSync(activityDir + activityName + '/css/index.css', styleSheet, {encoding: 'utf-8'});
-        fs.writeFileSync(activityDir + activityName + '/index.html', pageHTML, {encoding: 'utf-8'});
+        fs.writeFileSync(activityDir + activityName + '/index.html', pageHTML, {encoding: 'utf-8'});*/
 
         return res.json({
             success: true,

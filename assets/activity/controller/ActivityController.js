@@ -79,7 +79,7 @@
             $_ActivityService.downloadActivity(vm.activityName);
         };
 
-        vm.uploadImage = function (event, phd) {
+        vm.uploadImage = function (event, phd, key) {
             event && event.stopPropagation();
             if (!vm.activityName || !vm.targetTemplate.name) {
                 return;
@@ -88,7 +88,7 @@
 
             function setField (imgAddress) {
                 $scope.$apply(function() {  
-                    phd.value = imgAddress;
+                    phd[key] = imgAddress;
                 });  
             }
         };

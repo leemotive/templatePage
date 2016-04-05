@@ -22,7 +22,7 @@
                         <input type="hidden" name="templateName" value="{{ac.targetTemplate.name}}">
                         <input type="hidden" name="activityName" value="{{ac.activityName}}">
                         <input type="file" name="img">
-                        <input type="button" class="btn btn-primary btn-sm" value="上传" ng-click="ac.uploadImage($event, phd)">
+                        <input type="button" class="btn btn-primary btn-sm" value="上传" ng-click="ac.uploadImage($event, phd, 'value')">
                     </div>
                 </form>
 
@@ -42,7 +42,7 @@
                                         <input type="hidden" name="templateName" value="{{ac.targetTemplate.name}}">
                                         <input type="hidden" name="activityName" value="{{ac.activityName}}">
                                         <input type="file" name="img">
-                                        <input type="button" class="btn btn-primary btn-sm" value="上传" ng-click="ac.uploadImage($event, hd)">
+                                        <input type="button" class="btn btn-primary btn-sm" value="上传" ng-click="ac.uploadImage($event, v, hd.key)">
                                     </div>
                                 </form>
                             </div>
@@ -65,7 +65,7 @@
                                     <input type="hidden" name="templateName" value="{{ac.targetTemplate.name}}">
                                     <input type="hidden" name="activityName" value="{{ac.activityName}}">
                                     <input type="file" name="img">
-                                    <input type="button" class="btn btn-primary btn-sm" value="上传" ng-click="ac.uploadImage($event, hd)">
+                                    <input type="button" class="btn btn-primary btn-sm" value="上传" ng-click="ac.uploadImage($event, phd.value, hd.key)">
                                 </div>
                             </form>
                         </div>

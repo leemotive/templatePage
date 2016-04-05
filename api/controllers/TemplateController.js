@@ -26,17 +26,40 @@ module.exports = {
 
     findOne: function (req, res) {
         var templateName = req.params.name;
-        var template = fs.readFileSync(templateDir + templateName + '/index.html', {encoding: 'utf-8'});
+
+        var files = JSON.parse(fs.readFileSync(templateDir + templateName + '/config.json', {encoding: 'utf-8'})).templates;
+
+        var template;
+        var placeholders = [];
+        files.forEach(function (filepath) {
+            template = fs.readFileSync(templateDir + templateName + filepath, {encoding: 'utf-8'});
+            template.replace(crossPlaceholderRgx, function (match, sub, key, holders) {
+                var placeholder;
+                if (match.charAt(0) === '[') {
+                    placeholder = JSON.parse(key);
+                    placeholder.placeholders = JSON.parse(holders);
+                    placeholders.push(placeholder);
+                    //console.log(placeholder);
+                } else {
+                    placeholder = JSON.parse(sub);
+                    if (!placeholder.parseIgnore) {
+                        placeholders.push(placeholder);
+                    }
+                }
+            });
+        });
+
+        /*var template = fs.readFileSync(templateDir + templateName + '/index.html', {encoding: 'utf-8'});
         var cssTemplate = fs.readFileSync(templateDir + templateName + '/css/index.css', {encoding: 'utf-8'});
 
-        var placeholders = [];
+        
 
         cssTemplate.replace(placeholderRgx, function (match, sub) {
             var placeholder = JSON.parse(sub);
             if (!placeholder.parseIgnore) {
                 placeholders.push(placeholder);
             }
-        });
+        });*/
         /*template.replace(placeholderRgx, function (match, sub) {
             var placeholder = JSON.parse(sub);
             if (!placeholder.parseIgnore) {
@@ -50,20 +73,7 @@ module.exports = {
             //console.log(placeholder);
         });*/
 
-        template.replace(crossPlaceholderRgx, function (match, sub, key, holders) {
-            var placeholder;
-            if (match.charAt(0) === '[') {
-                placeholder = JSON.parse(key);
-                placeholder.placeholders = JSON.parse(holders);
-                placeholders.push(placeholder);
-                //console.log(placeholder);
-            } else {
-                placeholder = JSON.parse(sub);
-                if (!placeholder.parseIgnore) {
-                    placeholders.push(placeholder);
-                }
-            }
-        });
+        
         return res.json({
             success: true,
             message: '',
