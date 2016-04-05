@@ -162,6 +162,12 @@ module.exports = {
 
 function copyTemplate (templateName, activityName, notCopyWhenExist) {
     if (!fs.existsSync(activityDir + activityName) || !notCopyWhenExist){
-        copyDir.sync(templateDir + templateName, activityDir + activityName);
+        copyDir.sync(templateDir + templateName, activityDir + activityName, function (_stat, _path, _file) {
+            var path = _path.replace(/[\/\\]/g, '/');
+            if (path === templateDir + templateName + '/config.json') {
+                return false
+            }
+            return true;
+        });
     }
 }
